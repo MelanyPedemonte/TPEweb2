@@ -1,1 +1,2 @@
-# Ignore folders called 'templates_c'
+  
+/templates_c/*
