@@ -12,16 +12,19 @@
 
 
 
-    /*
+    
     // rutas
-    $r->addRoute("home", "GET", "TasksController", "Home");
-    $r->addRoute("mermelada", "GET", "TasksController", "Home");
-    //Esto lo veo en TasksView
-    $r->addRoute("insert", "POST", "TasksController", "InsertTask");
+    $r->addRoute("home", "GET", "PasteleriaController", "Home");
+    
+    //Esto lo veo en PasteleriaView
+    $r->addRoute("insert", "POST", "PasteleriaController", "Servicios");
+
+    /*
     $r->addRoute("delete/:ID", "GET", "TasksController", "BorrarLaTaskQueVienePorParametro");
     $r->addRoute("completar/:ID", "GET", "TasksController", "MarkAsCompletedTask");
     $r->addRoute("edit/:ID", "GET", "TasksController", "EditTask");
     */
+
     //Ruta por defecto.
     $r->setDefaultRoute("PasteleriaController", "Home");
 

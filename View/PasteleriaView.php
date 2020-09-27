@@ -23,5 +23,13 @@ class PasteleriaView{
             header("Location: ".BASE_URL."home");
         }
 
+        function ShowProductos($productos){
+            $smarty = new Smarty();
+            $smarty->assign('titulo', $this->title);
+            $smarty->assign('productos', $productos);
+
+            $smarty->display('templates/productos.tpl');
+        }
+
 }
 ?>

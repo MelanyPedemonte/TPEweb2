@@ -14,8 +14,13 @@
         }
 
         function Home(){
-            //$this->model->GetProductos();
             $this->view->ShowHome();
+        }
+
+        function Servicios(){
+            $productos = $this->model->GetProductos();
+            $this->view->ShowProductos($productos);
+
         }
 
 

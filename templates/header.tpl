@@ -18,8 +18,14 @@
             <li class="nav-item active">
               <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Productos</a>
+            <li class="nav-item dropdown">
+                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Categorias</a>
+                     <div class="dropdown-menu">
+                          <a class="dropdown-item" href="#">Todos los productos</a>
+                          <a class="dropdown-item" href="#">Cosas dulces</a>
+                          <a class="dropdown-item" href="#">Cosas saladas</a>
+                     <div class="dropdown-divider"></div>
+                 <a class="dropdown-item" href="#">Ver mas</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Contacto</a>
