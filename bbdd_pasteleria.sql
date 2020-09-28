@@ -6,6 +6,10 @@
 -- Tiempo de generación: 28-09-2020 a las 18:58:38
 -- Versión del servidor: 10.4.13-MariaDB
 -- Versión de PHP: 7.3.19
+-- Host: 127.0.0.1
+-- Generation Time: Sep 28, 2020 at 07:15 PM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -25,6 +29,7 @@ SET time_zone = "+00:00";
 
 --
 -- Estructura de tabla para la tabla `categoria`
+-- Table structure for table `categoria`
 --
 
 CREATE TABLE `categoria` (
@@ -35,6 +40,7 @@ CREATE TABLE `categoria` (
 
 --
 -- Volcado de datos para la tabla `categoria`
+-- Dumping data for table `categoria`
 --
 
 INSERT INTO `categoria` (`id_catgoria`, `nombre_categoria`, `descripcion_categoria`) VALUES
@@ -45,6 +51,7 @@ INSERT INTO `categoria` (`id_catgoria`, `nombre_categoria`, `descripcion_categor
 
 --
 -- Estructura de tabla para la tabla `producto`
+-- Table structure for table `producto`
 --
 
 CREATE TABLE `producto` (
@@ -57,6 +64,7 @@ CREATE TABLE `producto` (
 
 --
 -- Volcado de datos para la tabla `producto`
+-- Dumping data for table `producto`
 --
 
 INSERT INTO `producto` (`id_producto`, `nombre_producto`, `descripcion_producto`, `precio`, `id_categoria`) VALUES
@@ -70,12 +78,14 @@ INSERT INTO `producto` (`id_producto`, `nombre_producto`, `descripcion_producto`
 
 --
 -- Indices de la tabla `categoria`
+-- Indexes for table `categoria`
 --
 ALTER TABLE `categoria`
   ADD PRIMARY KEY (`id_catgoria`);
 
 --
 -- Indices de la tabla `producto`
+-- Indexes for table `producto`
 --
 ALTER TABLE `producto`
   ADD PRIMARY KEY (`id_producto`),
@@ -87,12 +97,13 @@ ALTER TABLE `producto`
 
 --
 -- AUTO_INCREMENT de la tabla `categoria`
---
+-- AUTO_INCREMENT for table `categoria`--
 ALTER TABLE `categoria`
   MODIFY `id_catgoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `producto`
+-- AUTO_INCREMENT for table `producto`
 --
 ALTER TABLE `producto`
   MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
@@ -103,6 +114,7 @@ ALTER TABLE `producto`
 
 --
 -- Filtros para la tabla `producto`
+-- Constraints for table `producto`
 --
 ALTER TABLE `producto`
   ADD CONSTRAINT `producto_ibfk_1` FOREIGN KEY (`id_categoria`) REFERENCES `categoria` (`id_catgoria`) ON DELETE CASCADE ON UPDATE CASCADE;

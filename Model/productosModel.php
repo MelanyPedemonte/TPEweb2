@@ -14,6 +14,7 @@
             $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
             return $productos;
            
+            return $sentencia->fetchAll(PDO::FETCH_OBJ);
         }
         
         function agregarProducto($nombre,$descripcion,$precio,$categoria){

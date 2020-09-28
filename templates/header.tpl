@@ -26,7 +26,7 @@
                           <a class="dropdown-item" href="#">Cosas dulces</a>
                           <a class="dropdown-item" href="#">Cosas saladas</a>
                      <div class="dropdown-divider"></div>
-                 <a class="dropdown-item" href="#">Ver mas</a>
+                 <a class="dropdown-item" href="categorias">Ver más categorias</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Contacto</a>

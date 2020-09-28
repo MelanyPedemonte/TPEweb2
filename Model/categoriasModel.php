@@ -14,6 +14,9 @@
             $categorias = $sentencia->fetchAll(PDO::FETCH_ASSOC);
         
             return $categorias;
+            $sentencia = $this->db->prepare("SELECT * FROM categoria");
+            $sentencia->execute();
+            return $sentencia->fetchAll(PDO::FETCH_OBJ);
         }
 
 
