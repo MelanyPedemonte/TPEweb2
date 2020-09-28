@@ -9,6 +9,15 @@
 
     $route = new Router();
 
+
+    $route->addRoute("home","GET","productosController","home");
+    $route->addRoute("productos","GET","productosController","traerProductos");
+    
+    $route->setDefaultRoute("productosController","home");
+
+
+
+
     $route->addRoute("home","GET","productosController","home");
 
 
