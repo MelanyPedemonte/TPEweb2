@@ -1,38 +1,31 @@
 <?php
-    require_once 'Controller/PasteleriaController.php';
+    require_once 'Controller/productosController.php';
+    require_once 'Controller/categoriasController.php';
     require_once 'RouterClass.php';
     
-    // CONSTANTES PARA RUTEO
     define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');
-
-    $r = new Router();
-
-    $r->addRoute("home", "GET", "PasteleriaController", "Home");
-
-
-
-
+    //define("URL_productoss", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/productos');
     
-    // rutas
-    $r->addRoute("home", "GET", "PasteleriaController", "Home");
-    
-    //Esto lo veo en PasteleriaView
-    $r->addRoute("insert", "POST", "PasteleriaController", "Servicios");
 
-    /*
-    $r->addRoute("delete/:ID", "GET", "TasksController", "BorrarLaTaskQueVienePorParametro");
-    $r->addRoute("completar/:ID", "GET", "TasksController", "MarkAsCompletedTask");
-    $r->addRoute("edit/:ID", "GET", "TasksController", "EditTask");
-    */
+    $route = new Router();
 
-    //Ruta por defecto.
-    $r->setDefaultRoute("PasteleriaController", "Home");
+    $route->addRoute("home","GET","productosController","home");
+    $route->addRoute("productos","GET","productosController","traerProductos");
+    
+    $route->setDefaultRoute("productosController","home");
 
-    //Advance
-    //$r->addRoute("autocompletar", "GET", "TasksAdvanceController", "AutoCompletar");
+
+    $route->route($_GET['action'], $_SERVER['REQUEST_METHOD']);
     
-    //run
-    $r->route($_GET['action'], $_SERVER['REQUEST_METHOD']); 
-    
+    /*if($action == ''){
+        $controller->home();
+    }elseif($action == 'home'){
+        $controller->home();
+    }elseif($action == "productos"){
+        $controller->traerProductos();
+    }else{
+        echo('404');
+    }*/
+        
 
 ?>

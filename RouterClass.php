@@ -18,6 +18,7 @@ class Route {
         if($this->verb != $verb){
             return false;
         }
+        
         $partsURL = explode("/", trim($url,'/'));
         $partsRoute = explode("/", trim($this->url,'/'));
         if(count($partsRoute) != count($partsURL)){
