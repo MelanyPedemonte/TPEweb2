@@ -19,7 +19,7 @@ class productosView{
 
         function Mostrar($productos){
             $this->smarty->assign('titulo', $this->titulo);
-            $this->smarty->assign('Productos',$productos);
+            $this->smarty->assign('productos',$productos);
             $this->smarty->display('templates/productos.tpl');
 
         }

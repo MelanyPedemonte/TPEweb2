@@ -2,7 +2,6 @@
 
     require_once "./View/productosView.php";
     require_once "./Model/productosModel.php";
-    require_once "./Model/categoriasModel.php";
 
 
     class productosController{
@@ -13,7 +12,6 @@
     function __construct(){
         $this->view = new productosView();
         $this->model = new productosModel();
-        $this->cmodel = new categoriasModel();
         $this->titulo = "Tan Rico";
     }
 

@@ -1,4 +1,5 @@
 {include file="header.tpl"}
+
   <div class="container">
 
           <ul class="list-group">
@@ -8,6 +9,6 @@
               {/foreach}
           
           </ul>
-          </div>
+  </div>
 
 {include file= "footer.tpl"}
