@@ -16,6 +16,10 @@
            
             return $sentencia->fetchAll(PDO::FETCH_OBJ);
         }
+
+        function getProducto(){
+            $sentencia = $this->db->prepare("");
+        }
         
         function agregarProducto($nombre,$descripcion,$precio,$categoria){
             $sentencia=$this->db->prepare("INSERT INTO producto(nombre_producto, descripcion_producto, precio,id_categoria) 
