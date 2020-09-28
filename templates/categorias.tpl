@@ -3,8 +3,8 @@
 
           <ul class="list-group">
 
-              {foreach from=$productos item=producto}
-                    <li class="list-group-item ">{$producto->nombre_producto}</li>
+              {foreach from=$categorias item=categoria}
+                    <li class="list-group-item ">{$categoria->nombre_categoria}</li>
               {/foreach}
           
           </ul>
