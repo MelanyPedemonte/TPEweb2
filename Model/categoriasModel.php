@@ -9,6 +9,11 @@
         }
 
         function getCategorias(){
+            $sentencia = $this->db->prepare("SELECT id_categoria, nombre_categoria, descripcion_categoria FROM categoria");
+            $sentencia->execute();
+            $categorias = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+        
+            return $categorias;
             $sentencia = $this->db->prepare("SELECT * FROM categoria");
             $sentencia->execute();
             return $sentencia->fetchAll(PDO::FETCH_OBJ);
