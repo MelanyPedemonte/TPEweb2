@@ -11,6 +11,9 @@
         function getProductos(){
             $sentencia = $this->db->prepare("SELECT * FROM producto");
             $sentencia->execute();
+            $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
+            return $productos;
+           
             return $sentencia->fetchAll(PDO::FETCH_OBJ);
         }
         
