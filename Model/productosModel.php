@@ -9,10 +9,9 @@
         }
 
         function getProductos(){
-            $sentencia = $this->db->prepare("SELECT p.id_producto, p.nombre_producto, p.descripcion_producto, p.precio, p.id_categoria FROM producto p INNER JOIN categotia c ON p.id_categoria = c.id_categoria");
+            $sentencia = $this->db->prepare("SELECT * FROM producto");
             $sentencia->execute();
             $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
-            var_dump($productos);
             return $productos;
            
         }
