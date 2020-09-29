@@ -26,6 +26,13 @@
         $this->view->Mostrar($productos);
     }
 
+    function getProducto($params = null){
+        $id = $params[':ID'];
+        $producto = $this->model->getProducto($id);
+        $this->view->showProducto($producto);
+    }
+
+
 
 
     }

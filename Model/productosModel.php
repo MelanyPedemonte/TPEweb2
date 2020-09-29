@@ -15,9 +15,14 @@
             return $productos;
         }
 
-        function getProducto(){
-            $sentencia = $this->db->prepare("");
+        function getProducto($id){
+            $sentencia = $this->db->prepare("SELECT id_producto,nombre_producto,descripcion_producto,precio FROM producto WHERE id_producto = ?");
+            $sentencia->execute([$id]);
+            $producto = $sentencia->fetch(PDO::FETCH_OBJ);
+
+            return $producto;
         }
+
         
         function agregarProducto($nombre,$descripcion,$precio,$categoria){
             $sentencia=$this->db->prepare("INSERT INTO producto(nombre_producto, descripcion_producto, precio,id_categoria) 

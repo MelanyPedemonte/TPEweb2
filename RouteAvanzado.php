@@ -12,6 +12,7 @@
 
     $route->addRoute("home","GET","productosController","home");
     $route->addRoute("productos","GET","productosController","traerProductos");
+    $route->addRoute("producto/:ID","GET","productosController","getProducto");
     
     $route->setDefaultRoute("productosController","home");
 
