@@ -4,16 +4,17 @@
           
       <table class="table table-bordered">
         <thead>
-          <tr class="table-active">
-            <th scope="col">Nombre</th>
-            <th scope="col">Categoria</th>
-          </tr>
+          
         </thead>
         <tbody>
         {foreach from=$productos item=producto}
             <tr>
-                <td><a href="producto/{$producto->id_producto}"> {$producto->nombre_producto}</a></td>
-                <td>{$producto->nombre_categoria}</td>
+                <div class="card" style="width: 18rem;">
+                     <div class="card-body">
+                          <h5 class="card-title"><a href="producto/{$producto->id_producto}"> {$producto->nombre_producto}</a></h5>
+                          <p class="card-text">{$producto->descripcion_producto}</p>
+                     </div>
+                </div>
             </tr>      
           {/foreach}
           </tbody>

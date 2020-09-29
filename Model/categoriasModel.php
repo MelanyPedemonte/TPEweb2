@@ -11,9 +11,18 @@
         function getCategorias(){
             $sentencia = $this->db->prepare("SELECT * FROM categoria");
             $sentencia->execute();
-            $categotias=$sentencia->fetchAll(PDO::FETCH_OBJ);
-            return $categotias;
+            $categorias=$sentencia->fetchAll(PDO::FETCH_OBJ);
+            return $categorias;
         }
+
+
+        function getCategoria($id){
+            $sentencia = $this->db->prepare("SELECT * FROM categoria WHERE id_categoria = ?");
+            $sentencia->execute([$id]);
+            $categoria = $sentencia->fetch(PDO::FETCH_OBJ);
+            return $categoria;
+        }
+   
 
 
     }

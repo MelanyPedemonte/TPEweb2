@@ -1,14 +1,19 @@
 {include file="header.tpl"}
   <div class="container">
 
-          <ul class="list-group">
-
-              {foreach from=$categorias item=categoria}
-                    <li class="list-group-item ">{$categoria->nombre_categoria}<small class="text-muted">  -{$categoria->descripcion_categoria}</small></li>
-              {/foreach}
+          <table class="table table-bordered">
+        <thead>
           
-          </ul>
-          </div>
+        </thead>
+        <tbody>
+        {foreach from=$categorias item=categoria}
+            <tr>
+                 <td> <a href="categoria/{$categoria->id_categoria}">{$categoria->nombre_categoria}</a></td> 
+                 <td>{$categoria->descripcion_categoria}</td>
+            </tr>      
+          {/foreach}
+          </tbody>
+          </table>          
 
 {include file= "footer.tpl"}
 

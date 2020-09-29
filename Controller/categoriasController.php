@@ -3,20 +3,16 @@
 
 require_once "./View/categoriasView.php";
 require_once "./Model/categoriasModel.php";
-require_once "./View/productosView.php";
-require_once "./Model/productosModel.php";
+//require_once "./Model/categoriasModel.php";
 
 
 class categoriasController{
 
     private $view;
     private $model;
-    private $pview;
-    private $pmodel;
 
 function __construct(){
     $this->view = new categoriasView();
-    $this->pview = new productosView();
     $this->pmodel = new productosModel();
     $this->model = new categoriasModel();
     $this->titulo = "Tan Rico";
@@ -26,9 +22,17 @@ function __construct(){
 //    $this->view->showHome();
 //}
 
-function getCategorias(){
+function traerCategorias(){
     $categorias = $this->model->getCategorias();
     $this->view->Mostrar($categorias);
+}
+
+
+function getCategoria($params = null){
+    $id = $params[':ID'];  
+    $categoria = $this->model->getCategoria($id);    
+    $productos =$this->pmodel->productosCategoria($id);
+    $this->view->showCategoria($categoria, $productos);
 }
 
 

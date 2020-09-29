@@ -1,13 +1,29 @@
 {include file="header.tpl"}
-    
-    <div class="card">
-          <div class="card-body">
-          <h3>Categoria</h3>
-            <h5 class="card-title">{$categoria->nombre_categoria}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">{$producto->descripcion_categoria}</h6>
-        </div>
-    </div>
-    {include file="productos.tpl"}
+  <div class="datos-bbdd">
+ 
 
-{include file= "footer.tpl"}
+    
+            <table class="table table-bordered">
+            <thead>
+                <h1>{$categoria->nombre_categoria}</h1>
+            </thead>
+            <tbody>
+                <tr>
+                    {foreach from=$productos item=item}
+                        <div class="card" style="width: 18rem;">
+                           <div class="card-body">
+                               <h5 class="card-title"><a href="producto/{$item.id_producto}">{$item.nombre_producto}</a></h5>
+                               <p class="card-text">{$item.descripcion_producto}</p>
+                           </div>
+                        </div>
+                </tr>
+                {/foreach}
+            </tbody>
+            </table> 
+
+       
+</div>
+
+
+{include file="footer.tpl"}
 
