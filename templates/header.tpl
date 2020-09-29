@@ -23,8 +23,8 @@
                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Categorias</a>
                      <div class="dropdown-menu">
                           <a class="dropdown-item" href="productos">Todos los productos</a>
-                          <a class="dropdown-item" href="#">Cosas dulces</a>
-                          <a class="dropdown-item" href="#">Cosas saladas</a>
+                          <a class="dropdown-item" href="categoria">Cosas dulces</a>
+                          <a class="dropdown-item" href="categoria">Cosas saladas</a>
                      <div class="dropdown-divider"></div>
                  <a class="dropdown-item" href="categorias">Ver más categorias</a>
             </li>
