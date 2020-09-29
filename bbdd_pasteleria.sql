@@ -2,12 +2,8 @@
 -- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 28-09-2020 a las 18:58:38
--- Versión del servidor: 10.4.13-MariaDB
--- Versión de PHP: 7.3.19
 -- Host: 127.0.0.1
--- Generation Time: Sep 28, 2020 at 07:15 PM
+-- Generation Time: Sep 29, 2020 at 10:36 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.6
 
@@ -22,35 +18,33 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `bbdd_pasteleria`
+-- Database: `bbdd_pasteleria`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `categoria`
 -- Table structure for table `categoria`
 --
 
 CREATE TABLE `categoria` (
-  `id_catgoria` int(11) NOT NULL,
+  `id_categoria` int(11) NOT NULL,
   `nombre_categoria` varchar(50) NOT NULL,
   `descripcion_categoria` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `categoria`
 -- Dumping data for table `categoria`
 --
 
-INSERT INTO `categoria` (`id_catgoria`, `nombre_categoria`, `descripcion_categoria`) VALUES
+INSERT INTO `categoria` (`id_categoria`, `nombre_categoria`, `descripcion_categoria`) VALUES
 (1, 'Cosas Dulces', 'Productos Dulces'),
-(2, 'Cosas Saladas', 'Productos salados');
+(2, 'Cosas Saladas', 'Productos salados'),
+(5, 'Desayunos', 'Box y desayunos para regalar o disfrutar');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `producto`
 -- Table structure for table `producto`
 --
 
@@ -63,28 +57,26 @@ CREATE TABLE `producto` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `producto`
 -- Dumping data for table `producto`
 --
 
 INSERT INTO `producto` (`id_producto`, `nombre_producto`, `descripcion_producto`, `precio`, `id_categoria`) VALUES
 (1, 'Brownie', 'Brownie de 20x20, con o sin nueces.', 350, 1),
 (2, 'Budin', 'Budin de vainilla con o sin chispas', 80, 1),
-(3, 'Sandwich de miga', 'Docena de sandwich de miga', 320, 2);
+(3, 'Sandwich de miga', 'Docena de sandwich de miga', 320, 2),
+(5, 'Box -Dia de la Madre', 'Este box incluye: \r\n-1 taza de vidrio. \r\n-2 tartas individuales a elección. (pastafrola, tarta cabsha o de coco)\r\n-2 alfajores de maicena. \r\n-3 galletitas.\r\n-2 budines individuales.\r\n-1 bolsita de biscochitos.\r\n-1 te(clásico o verde). ', 500, 5);
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `categoria`
 -- Indexes for table `categoria`
 --
 ALTER TABLE `categoria`
-  ADD PRIMARY KEY (`id_catgoria`);
+  ADD PRIMARY KEY (`id_categoria`);
 
 --
--- Indices de la tabla `producto`
 -- Indexes for table `producto`
 --
 ALTER TABLE `producto`
@@ -92,32 +84,30 @@ ALTER TABLE `producto`
   ADD KEY `id_categoria` (`id_categoria`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `categoria`
--- AUTO_INCREMENT for table `categoria`--
+-- AUTO_INCREMENT for table `categoria`
+--
 ALTER TABLE `categoria`
-  MODIFY `id_catgoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT de la tabla `producto`
 -- AUTO_INCREMENT for table `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- Restricciones para tablas volcadas
+-- Constraints for dumped tables
 --
 
 --
--- Filtros para la tabla `producto`
 -- Constraints for table `producto`
 --
 ALTER TABLE `producto`
-  ADD CONSTRAINT `producto_ibfk_1` FOREIGN KEY (`id_categoria`) REFERENCES `categoria` (`id_catgoria`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `producto_ibfk_1` FOREIGN KEY (`id_categoria`) REFERENCES `categoria` (`id_categoria`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
