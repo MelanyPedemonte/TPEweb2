@@ -48,5 +48,13 @@ function borrarCategoria($params = null){
     $this->view->Mostrar($categorias);
 }
 
+function editCategoria($params = null){
+    $id = $params[':ID'];
+    $this->model->editarCategoria($id,$_POST['nombre'],$_POST['descripcion']);
+    $categoria = $this->model->getCategoria($id);
+    $productos =$this->pmodel->productosCategoria($id);
+    $this->view->showCategoria($categoria, $productos);
+}
+
 
 }

@@ -32,8 +32,12 @@
             $sentencia = $this->db->prepare("DELETE FROM categoria WHERE id_categoria = ?");
             $sentencia->execute(array($id));
         }
-   
-
+        
+        function editarCategoria($id,$nombre_categoria,$descripcion_categoria){
+            $sentencia = $this->db->prepare("UPDATE categoria SET nombre_categoria=?, descripcion_categoria=? WHERE id_categoria=?");
+            $sentencia->execute(array($nombre_categoria,$descripcion_categoria,$id));
+        }
+        
 
     }
 
