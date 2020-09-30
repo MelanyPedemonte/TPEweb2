@@ -35,5 +35,11 @@ function getCategoria($params = null){
     $this->view->showCategoria($categoria, $productos);
 }
 
+function InsertCategoria(){
+    $this->model->agregarCategoria($_POST['nombre'],$_POST['descripcion']);
+    $categorias = $this->model->getCategorias();
+    $this->view->Mostrar($categorias);
+}
+
 
 }

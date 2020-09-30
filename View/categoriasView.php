@@ -21,7 +21,6 @@ class categoriasView{
             $this->smarty->assign('titulo', $this->titulo);
             $this->smarty->assign('categorias',$categorias);
             $this->smarty->display('templates/categorias.tpl');
-
         }
 
         function showCategoria($categoria, $productos){
@@ -29,6 +28,7 @@ class categoriasView{
             $this->smarty->assign('productos', $productos);
             $this->smarty->display('templates/categoria.tpl');
         }
+
 
 }
 ?>

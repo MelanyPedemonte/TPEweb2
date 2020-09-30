@@ -23,14 +23,6 @@
             return $producto;
         }
 
-        
-        function agregarProducto($nombre,$descripcion,$precio,$categoria){
-            $sentencia=$this->db->prepare("INSERT INTO producto(nombre_producto, descripcion_producto, precio,id_categoria) 
-            VALUES(?,?,?,?)");
-            $sentencia->execute([$nombre, $descripcion, $precio, $categoria]);
-            $id_libro=$this->db->lastInsertId();
-            return $id_libro;
-        }
 
         function productosCategoria($id){
             $sentencia = $this->db->prepare("SELECT * FROM producto WHERE id_categoria = ?");
@@ -38,6 +30,14 @@
             $productos = $sentencia->fetchAll(PDO::FETCH_ASSOC);
             return $productos;
         }
+
+        function agregarProducto($nombre_producto,$descripcion_producto,$precio, $id_categoria){
+            $sentencia=$this->db->prepare("INSERT INTO producto(nombre_producto, descripcion_producto, precio, id_categoria) 
+            VALUES(?,?,?,?)");
+            $sentencia->execute(array($nombre_producto,$descripcion_producto,$precio,$id_categoria));
+        }
+
+        
 
 
     }

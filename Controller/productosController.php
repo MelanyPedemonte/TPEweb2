@@ -32,6 +32,11 @@
         $this->view->showProducto($producto);
     }
 
+    function InsertProducto($categorias){
+        $this->cmodel->getCategoria();
+        $this->model->agregarProducto($_POST['nombre'],$_POST['descripcion'],$_POST['precio'],$_POST['categoria']);
+        $this->view->mostrarForm($categorias);
+    }
 
 
 

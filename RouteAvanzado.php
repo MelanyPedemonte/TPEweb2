@@ -13,32 +13,14 @@
     $route->addRoute("home","GET","productosController","home");
     $route->addRoute("productos","GET","productosController","traerProductos");
     $route->addRoute("producto/:ID","GET","productosController","getProducto");
-    
-    $route->setDefaultRoute("productosController","home");
-
-
-
-
-    $route->addRoute("home","GET","productosController","home");
-
-
     $route->addRoute("categorias","GET","categoriasController","traerCategorias");
     $route->addRoute("categoria/:ID","GET","categoriasController","getCategoria");
+    $route->addRoute("addCategoria", "POST", "categoriasController", "InsertCategoria");
 
 
-
+    $route->setDefaultRoute("productosController","home");
 
     $route->route($_GET['action'], $_SERVER['REQUEST_METHOD']);
     
-    /*if($action == ''){
-        $controller->home();
-    }elseif($action == 'home'){
-        $controller->home();
-    }elseif($action == "productos"){
-        $controller->traerProductos();
-    }else{
-        echo('404');
-    }*/
-        
 
 ?>

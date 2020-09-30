@@ -30,6 +30,11 @@ class productosView{
             $this->smarty->display('templates/producto.tpl');
         }
 
+        function mostrarForm($categorias){
+            $this->smarty->assign('categorias',$categorias);
+            $this->smarty->display('templates/productos.tpl');
+          }
+
 
 }
 ?>

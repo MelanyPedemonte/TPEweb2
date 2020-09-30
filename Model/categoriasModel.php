@@ -22,6 +22,11 @@
             $categoria = $sentencia->fetch(PDO::FETCH_OBJ);
             return $categoria;
         }
+
+        function agregarCategoria($nombre_categoria,$descripcion_categoria){
+            $sentencia=$this->db->prepare("INSERT INTO categoria(nombre_categoria, descripcion_categoria) VALUES(?,?)");
+            $sentencia->execute(array($nombre_categoria,$descripcion_categoria));
+        }
    
 
 
