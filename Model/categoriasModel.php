@@ -27,6 +27,11 @@
             $sentencia=$this->db->prepare("INSERT INTO categoria(nombre_categoria, descripcion_categoria) VALUES(?,?)");
             $sentencia->execute(array($nombre_categoria,$descripcion_categoria));
         }
+
+        function eliminarCategoria($id){
+            $sentencia = $this->db->prepare("DELETE FROM categoria WHERE id_categoria = ?");
+            $sentencia->execute(array($id));
+        }
    
 
 

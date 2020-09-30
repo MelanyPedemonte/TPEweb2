@@ -22,20 +22,31 @@
     }
 
     function traerProductos(){
+        $categorias= $this->cmodel->getCategorias();
         $productos = $this->model->getProductos();
-        $this->view->Mostrar($productos);
+        $this->view->Mostrar($productos, $categorias);
     }
 
     function getProducto($params = null){
         $id = $params[':ID'];
+        $categorias= $this->cmodel->getCategorias();
         $producto = $this->model->getProducto($id);
-        $this->view->showProducto($producto);
+        $this->view->showProducto($producto, $categorias);
     }
 
-    function InsertProducto($categorias){
-        $this->cmodel->getCategoria();
+    function InsertProducto(){
+        $categorias= $this->cmodel->getCategorias();
         $this->model->agregarProducto($_POST['nombre'],$_POST['descripcion'],$_POST['precio'],$_POST['categoria']);
-        $this->view->mostrarForm($categorias);
+        $productos = $this->model->getProductos();
+        $this->view->Mostrar($productos, $categorias);
+    }
+
+    function borrarProducto($params = null){
+        $id = $params[':ID'];
+        $this->model->eliminarProducto($id);
+        $productos = $this->model->getProductos();
+        $categorias= $this->cmodel->getCategorias();
+        $this->view->Mostrar($productos, $categorias);
     }
 
 

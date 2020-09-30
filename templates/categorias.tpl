@@ -10,6 +10,7 @@
             <tr>
                  <td> <a href="categoria/{$categoria->id_categoria}">{$categoria->nombre_categoria}</a></td> 
                  <td>{$categoria->descripcion_categoria}</td>
+                 <td><button type="button" class="btn btn-outline-danger"><a href="deletecategoria/{$categoria->id_categoria}">Borrar</a></button></td>
             </tr>      
           {/foreach}
           </tbody>

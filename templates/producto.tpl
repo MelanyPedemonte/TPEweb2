@@ -5,7 +5,7 @@
             <h5 class="card-title">{$producto->nombre_producto}</h5>
             <h6 class="card-subtitle mb-2 text-muted">{$producto->descripcion_producto}</h6>
             <p class="card-text"> ${$producto->precio}</p>
-            <a href="#" class="btn btn-secondary">Comprar</a>
+            <button type="button" class="btn btn-outline-danger"><a href="deleteproducto/{$producto->id_producto}">Borrar</a></button>
         </div>
     </div>
 

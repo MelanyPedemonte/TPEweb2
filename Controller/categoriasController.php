@@ -41,5 +41,12 @@ function InsertCategoria(){
     $this->view->Mostrar($categorias);
 }
 
+function borrarCategoria($params = null){
+    $id = $params[':ID'];
+    $this->model->eliminarCategoria($id);
+    $categorias = $this->model->getCategorias();
+    $this->view->Mostrar($categorias);
+}
+
 
 }

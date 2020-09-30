@@ -37,7 +37,7 @@
                          <select  class="form-control" name="categoria">
                          <option> Seleccione  </option>
                               {foreach from=$categorias item=categoria}
-                              <option value="{$categoria->id_categoria} ">{$categoria->nombre}</option>
+                              <option value="{$categoria->id_categoria} ">{$categoria->nombre_categoria}</option>
                               {/foreach}
                          </select>
                     </div> 
