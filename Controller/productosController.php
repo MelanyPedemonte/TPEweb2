@@ -51,9 +51,9 @@
 
     function editProducto($params = null){
         $id = $params[':ID'];
-        $categorias= $this->cmodel->getCategorias();
         $this->model->editarProducto($id,$_POST['nombre'],$_POST['descripcion'],$_POST['precio'],$_POST['categoria']);
         $producto = $this->model->getProducto($id);
+        $categorias= $this->cmodel->getCategorias();
         $this->view->showProducto($producto, $categorias);
     }
 

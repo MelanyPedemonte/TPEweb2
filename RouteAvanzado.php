@@ -15,7 +15,7 @@
     $route->addRoute("producto/:ID","GET","productosController","getProducto");
     $route->addRoute("addProducto", "POST", "productosController", "InsertProducto");
     $route->addRoute("deleteproducto/:ID","GET","productosController","borrarProducto");
-    $route->addRoute("editarProducto/:ID","POST","productoController","editProducto");
+    $route->addRoute("editarProducto/:ID","POST","productosController","editProducto");
     $route->addRoute("categorias","GET","categoriasController","traerCategorias");
     $route->addRoute("categoria/:ID","GET","categoriasController","getCategoria");
     $route->addRoute("addCategoria", "POST", "categoriasController", "InsertCategoria");

@@ -19,7 +19,7 @@
                          <input value=" " name="descripcion" type="text" class="form-control" placeholder="Descripcion">
                     </div>
                     <div class="form-group">
-                         <label> Precion: </label>
+                         <label> Precio: </label>
                          <input value=" " name="precio" type="text" class="form-control" placeholder="Precio">
                     </div>
                     <div class="form-group">

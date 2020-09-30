@@ -25,9 +25,10 @@ class productosView{
 
         }
 
-        function showProducto($producto){
+        function showProducto($producto, $categorias){
             $this->smarty->assign('titulo', $this->titulo);
             $this->smarty->assign('producto',$producto);
+            $this->smarty->assign('categorias',$categorias);
             $this->smarty->display('templates/producto.tpl');
         }
 
