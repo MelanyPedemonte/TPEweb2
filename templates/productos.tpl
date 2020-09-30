@@ -42,6 +42,6 @@
                          </select>
                     </div> 
                     
-                         <button type="button" class="btn btn-outline-success"><a href="agregar">Agregar</button>     
+                         <button type="submit" class="btn btn-outline-success">Agregar</button>     
                </form>
 {include file= "footer.tpl"}
