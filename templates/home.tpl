@@ -23,7 +23,7 @@
       </div>
       <div class="fom-login">
         <div class="area-form">
-              <form action="verify" method="POST">
+              <form action="newUser" method="POST">
                     <h1>Registrate Ahora!</h1>
                     <h2>Hace tus compras rapido y facil desde tu hogar</h2>
               
@@ -31,14 +31,18 @@
                           <label>Usuario</label>
                           <input type="text" name="user" class="form-control" placeholder="Usuario">
                       </div>
+
+                      <div class="form-group">
+                          <label>Email</label>
+                          <input type="text" name="email" class="form-control" placeholder="Usuario">
+                      </div>
               
                       <div class="form-group">
                           <label>Contraseña</label>
                           <input type="password" name="pass" class="form-control" placeholder="Contraseña">
                       </div>
               
-                      <button type="submit" class="btn btn-secondary">Ingresar</button>
-                      <a href="registro" class="btn btn-secondary">Registrarse</a>
+                      <button type="submit" class="btn btn-secondary">Registrarse</button>
                   </form>
         </div>
     </div>

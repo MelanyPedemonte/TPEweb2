@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 29, 2020 at 10:36 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.6
+-- Generation Time: Oct 05, 2020 at 02:34 AM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.4.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -66,6 +66,26 @@ INSERT INTO `producto` (`id_producto`, `nombre_producto`, `descripcion_producto`
 (3, 'Sandwich de miga', 'Docena de sandwich de miga', 320, 2),
 (5, 'Box -Dia de la Madre', 'Este box incluye: \r\n-1 taza de vidrio. \r\n-2 tartas individuales a elección. (pastafrola, tarta cabsha o de coco)\r\n-2 alfajores de maicena. \r\n-3 galletitas.\r\n-2 budines individuales.\r\n-1 bolsita de biscochitos.\r\n-1 te(clásico o verde). ', 500, 5);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `usuario`
+--
+
+CREATE TABLE `usuario` (
+  `id_usuario` int(11) NOT NULL,
+  `usuario` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `pass` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `usuario`
+--
+
+INSERT INTO `usuario` (`id_usuario`, `usuario`, `email`, `pass`) VALUES
+(1, 'melany', 'melanypedemonte@gmail.com', '$2y$10$E9n3ivnxwPcPcHKW8cVFV.W//AXXPhkpglt40FnFefK2.P3Up4y.y');
+
 --
 -- Indexes for dumped tables
 --
@@ -84,6 +104,12 @@ ALTER TABLE `producto`
   ADD KEY `id_categoria` (`id_categoria`);
 
 --
+-- Indexes for table `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`id_usuario`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -91,13 +117,19 @@ ALTER TABLE `producto`
 -- AUTO_INCREMENT for table `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
