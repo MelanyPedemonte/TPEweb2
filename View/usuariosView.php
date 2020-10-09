@@ -19,9 +19,11 @@ class usuariosView{
         $smarty->display('templates/login.tpl'); 
     }
 
-    function ShowVerify(){
+    function ShowVerify($productos, $categorias){
         $smarty = new Smarty();
         $smarty->assign('titulo', $this->title);
+        $smarty->assign('productos', $productos);
+        $smarty->assign('categorias', $categorias);
         $smarty->display('templates/verify.tpl'); 
     }
 

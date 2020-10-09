@@ -10,23 +10,10 @@
             <tr>
                  <td> <a href="categoria/{$categoria->id_categoria}">{$categoria->nombre_categoria}</a></td> 
                  <td>{$categoria->descripcion_categoria}</td>
-                 <td><button type="button" class="btn btn-outline-danger"><a href="deletecategoria/{$categoria->id_categoria}">Borrar</a></button></td>
             </tr>      
           {/foreach}
           </tbody>
-          </table> 
-          <h3>Agregar Categoria</h3>
-               <form id="formview" action="addCategoria" method="post">
-                    <div class="form-group">
-                         <label> Nombre: </label>
-                         <input value=" " name="nombre" type="text" class="form-control" placeholder="Nombre">
-                    </div>
-                    <div class="form-group">
-                         <label> Descripcion: </label>
-                         <input value=" " name="descripcion" type="text" class="form-control" placeholder="Descripcion">
-                    </div>
-                         <button type="submit" class="btn btn-outline-success">Agregar</button>     
-               </form>         
+          </table>        
 
 {include file= "footer.tpl"}
 

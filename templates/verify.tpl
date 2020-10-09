@@ -1,26 +1,49 @@
-{include file= "headerUsuario.tpl"}
-    <div class="contenedor">
-      <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="./images/baner1.jpg" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="./images/baner2.jpg" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="./images/baner3.jpg" class="d-block w-100" alt="...">
-          </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-    </div>
-    
-  {include file= "footer.tpl"}
+{include file="headerUsuario.tpl"}
+<section class="contenedor_table">   
+     <table class="table table-bordered">
+          <thead>
+              <h1>PRODUCTOS</h1>
+          </thead>
+          <tbody>
+               {foreach from=$productos item=producto}
+               <tr>
+                    <div class="card" style="width: 18rem;">
+                         <div class="card-body">
+                              <h5 class="card-title"><a href="producto/{$producto->id_producto}"> {$producto->nombre_producto}</a></h5>
+                              <p class="card-text">{$producto->descripcion_producto}</p>
+                              <p class="card-text">${$producto->precio}</p>
+                              <button type="button" class="btn btn-outline-danger"><a href="deleteproducto/{$producto->id_producto}">Borrar</a></button>
+                              <button type="button" class="btn btn-outline-danger"><a href="editP/{$producto->id_producto}">Editar</a></button>
+                         </div>
+                    </div>
+               </tr>      
+               {/foreach}
+          </tbody>
+     </table>   
+</div>
+</section>  
+<!--FORMULARIO PARA INSERTAR PRODUCTO-->
+{include file="addProducto.tpl"}
+
+<section class="contenedor_table">
+    <table class="table table-bordered">
+        <thead>
+          <h1>CATEGORIAS</h1>
+        </thead>
+        <tbody>
+        {foreach from=$categorias item=categoria}
+            <tr>
+                 <td> <a href="categoria/{$categoria->id_categoria}">{$categoria->nombre_categoria}</a></td> 
+                 <td>{$categoria->descripcion_categoria}</td>
+                 <td><button type="button" class="btn btn-outline-danger"><a href="deletecategoria/{$categoria->id_categoria}">Borrar</a></button></td>
+                 <td><button type="button" class="btn btn-outline-danger"><a href="editC/{$categoria->id_categoria}">Editar</a></button></td>
+            </tr>      
+          {/foreach}
+          </tbody>
+          </table> 
+</section> 
+<!--FORMULARIO PARA INSERTAR CATEGORIA-->
+{include file="addCategoria.tpl"}
+
+
+{include file="footer.tpl"}
