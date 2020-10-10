@@ -29,6 +29,10 @@
         $this->view->showHome();
     }
 
+    function contacto(){
+        $this->view->showContacto();
+    }
+
     function traerProductos(){
         $categorias= $this->cmodel->getCategorias();
         $productos = $this->model->getProductos();
@@ -37,9 +41,10 @@
 
     function getProducto($params = null){
         $id = $params[':ID'];
-        $categorias= $this->cmodel->getCategorias();
         $producto = $this->model->getProducto($id);
-        $this->view->showProducto($producto, $categorias);
+        $categoria_id= $producto->id_categoria;
+        $categoria= $this->cmodel->getCategoria($categoria_id);
+        $this->view->showProducto($producto, $categoria);
     }
 
     function InsertProducto(){

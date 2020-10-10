@@ -9,14 +9,14 @@
         }
 
         function getProductos(){
-            $sentencia = $this->db->prepare("SELECT * FROM producto");
+            $sentencia = $this->db->prepare("SELECT producto.id_producto,producto.nombre_producto,producto.descripcion_producto,producto.precio, producto.id_categoria as categoria_id, categoria.nombre_categoria as nombre_categoria FROM producto inner JOIN categoria ON producto.id_categoria = categoria.id_categoria");
             $sentencia->execute();
             $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
             return $productos;
         }
 
         function getProducto($id){
-            $sentencia = $this->db->prepare("SELECT id_producto,nombre_producto,descripcion_producto,precio FROM producto WHERE id_producto = ?");
+            $sentencia = $this->db->prepare("SELECT id_producto,nombre_producto,descripcion_producto,precio, id_categoria FROM producto WHERE id_producto = ?");
             $sentencia->execute([$id]);
             $producto = $sentencia->fetch(PDO::FETCH_OBJ);
 

@@ -29,7 +29,7 @@
                  <a class="dropdown-item" href="categorias">Ver más categorias</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Contacto</a>
+              <a class="nav-link" href="contacto">Contacto</a>
             </li>
           </ul>
           <span class="navbar-text">

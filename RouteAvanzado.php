@@ -12,6 +12,7 @@
 
     //productos
     $route->addRoute("home","GET","productosController","home");
+    $route->addRoute("contacto","GET","productosController","contacto");
     $route->addRoute("productos","GET","productosController","traerProductos");
     $route->addRoute("producto/:ID","GET","productosController","getProducto");
     $route->addRoute("addProducto", "POST", "productosController", "InsertProducto");

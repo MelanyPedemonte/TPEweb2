@@ -17,6 +17,11 @@ class productosView{
 
         }
 
+        function showContacto(){
+            $this->smarty->display('templates/contacto.tpl');
+
+        }
+
         function Mostrar($productos, $categorias){
             $this->smarty->assign('titulo', $this->titulo);
             $this->smarty->assign('productos',$productos);
@@ -25,10 +30,10 @@ class productosView{
 
         }
 
-        function showProducto($producto, $categorias){
+        function showProducto($producto, $categoria){
             $this->smarty->assign('titulo', $this->titulo);
             $this->smarty->assign('producto',$producto);
-            $this->smarty->assign('categorias',$categorias);
+            $this->smarty->assign('categoria',$categoria);
             $this->smarty->display('templates/producto.tpl');
         }
 
