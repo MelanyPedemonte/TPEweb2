@@ -21,6 +21,8 @@
           <span class="sr-only">Next</span>
         </a>
       </div>
+ 
+ <!--
       <div class="fom-login">
         <div class="area-form">
               <form action="newUser" method="POST">
@@ -46,5 +48,6 @@
                   </form>
         </div>
     </div>
+  -->
     
   {include file= "footer.tpl"}

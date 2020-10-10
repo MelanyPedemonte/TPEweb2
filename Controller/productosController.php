@@ -51,7 +51,13 @@
         $logeado = $this->uControl->checkLoggedIn();
         if($logeado){
             $categorias= $this->cmodel->getCategorias();
-            $this->model->agregarProducto($_POST['nombre'],$_POST['descripcion'],$_POST['precio'],$_POST['categoria']);
+            if ((isset($_POST['nombre']) && isset($_POST['descripcion'])) && (isset($_POST['precio']) && isset($_POST['categoria']))) {
+                $nombre = $_POST['nombre'];
+                $descripcion = $_POST['descripcion'];
+                $precio = $_POST['precio'];
+                $categoria = $_POST['categoria'];
+                $this->model->agregarProducto($nombre,$descripcion,$precio,$categoria);
+            }
             $productos = $this->model->getProductos();
             $categorias= $this->cmodel->getCategorias();
             $this->uView->showVerify($productos, $categorias);
@@ -89,7 +95,13 @@
         $logeado = $this->uControl->checkLoggedIn();
         if($logeado){
             $id = $params[':ID'];
-            $this->model->editarProducto($id,$_POST['nombre'],$_POST['descripcion'],$_POST['precio'],$_POST['categoria']);
+            if ((isset($_POST['nombre']) && isset($_POST['descripcion'])) && (isset($_POST['precio']) && isset($_POST['categoria']))) {
+                $nombre = $_POST['nombre'];
+                $descripcion = $_POST['descripcion'];
+                $precio = $_POST['precio'];
+                $categoria = $_POST['categoria'];
+                $this->model->editarProducto($id,$nombre,$descripcion,$precio,$categoria);
+            }
             $productos = $this->model->getProductos();
             $categorias= $this->cmodel->getCategorias();
             $this->uView->showVerify($productos, $categorias);
@@ -99,7 +111,4 @@
     }
 
 
-
-
-
-    }
+}

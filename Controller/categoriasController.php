@@ -45,7 +45,11 @@ function getCategoria($params = null){
 function InsertCategoria(){
     $logeado = $this->uControl->checkLoggedIn();
     if($logeado){
-        $this->model->agregarCategoria($_POST['nombre'],$_POST['descripcion']);
+        if ((isset($_POST['nombre']) && isset($_POST['descripcion']))) {
+            $nombre = $_POST['nombre'];
+            $descripcion = $_POST['descripcion'];
+            $this->model->agregarCategoria($_POST['nombre'],$_POST['descripcion']);
+        }
         $categorias = $this->model->getCategorias();
         $productos =$this->pmodel->getProductos();
         $this->uView->ShowVerify($productos, $categorias);
@@ -83,7 +87,11 @@ function editCategoria($params = null){
     $logeado = $this->uControl->checkLoggedIn();
     if($logeado){
         $id = $params[':ID'];
-        $this->model->editarCategoria($id,$_POST['nombre'],$_POST['descripcion']);
+        if ((isset($_POST['nombre']) && isset($_POST['descripcion']))) {
+            $nombre = $_POST['nombre'];
+            $descripcion = $_POST['descripcion'];
+            $this->model->editarCategoria($id,$nombre,$descripcion);
+        }
         $categorias = $this->model->getCategorias();
         $productos =$this->pmodel->getProductos();
         $this->uView->ShowVerify($productos, $categorias);
