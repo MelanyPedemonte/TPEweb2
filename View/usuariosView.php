@@ -11,6 +11,13 @@ class usuariosView{
         $this->title = "Login";
     }
 
+    function showContactoUsuario(){
+        $smarty = new Smarty();
+        $smarty->assign('titulo_s', $this->title);
+        $smarty->display('templates/contactoUsuario.tpl');
+
+    }
+
     function ShowLogin($message = ""){
 
         $smarty = new Smarty();
@@ -24,7 +31,23 @@ class usuariosView{
         $smarty->assign('titulo', $this->title);
         $smarty->assign('productos', $productos);
         $smarty->assign('categorias', $categorias);
-        $smarty->display('templates/verify.tpl'); 
+        $smarty->display('templates/homeUsuario.tpl'); 
+    }
+
+    function ShowCategoriasAdmin($productos, $categorias){
+        $smarty = new Smarty();
+        $smarty->assign('titulo', $this->title);
+        $smarty->assign('productos', $productos);
+        $smarty->assign('categorias', $categorias);
+        $smarty->display('templates/categoriasAdmin.tpl'); 
+    }
+
+    function ShowProductosAdmin($productos, $categorias){
+        $smarty = new Smarty();
+        $smarty->assign('titulo', $this->title);
+        $smarty->assign('productos', $productos);
+        $smarty->assign('categorias', $categorias);
+        $smarty->display('templates/productosAdmin.tpl'); 
     }
 
 

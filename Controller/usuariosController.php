@@ -20,6 +20,10 @@ class usuariosController{
 
     }
 
+    function contactoUsuario(){
+        $this->view->showContactoUsuario();
+    }
+
     function Login(){
         $logeado = $this->checkLoggedIn();
         if($logeado){
@@ -95,6 +99,18 @@ class usuariosController{
         $categorias = $this->cmodel->GetCategorias();
         $productos = $this->pmodel->GetProductos();
         $this->view->ShowVerify($productos, $categorias);
+    }
+
+    function productosAdmin(){
+        $categorias = $this->cmodel->GetCategorias();
+        $productos = $this->pmodel->GetProductos();
+        $this->view->ShowProductosAdmin($productos, $categorias);
+    }
+
+    function categoriasAdmin(){
+        $categorias = $this->cmodel->GetCategorias();
+        $productos = $this->pmodel->GetProductos();
+        $this->view->ShowCategoriasAdmin($productos, $categorias);
     }
 
 

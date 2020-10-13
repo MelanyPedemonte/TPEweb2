@@ -33,6 +33,12 @@
     $route->addRoute("logout", "GET", "usuariosController", "Logout");
     $route->addRoute("verifyUser", "POST", "usuariosController", "VerifyUser");
     $route->addRoute("newUser", "POST", "usuariosController", "newUsuario");
+    $route->addRoute("productosAdmin","GET","usuariosController","productosAdmin");
+    $route->addRoute("categoriasAdmin","GET","usuariosController","categoriasAdmin");
+    $route->addRoute("contactoUsuario","GET","usuariosController","contactoUsuario");
+
+
+
 
 
 
