@@ -1,4 +1,4 @@
-<h3>Agregar Producto</h3>
+<h3 class="textAdd">Agregar Producto</h3>
                <form id="formview" action="addProducto" method="post">
                     <div class="form-group">
                          <label> Nombre: </label>
@@ -22,5 +22,5 @@
                          </select>
                     </div> 
                     
-                         <button type="submit" class="btn btn-outline-success">Agregar</button>     
+                         <button type="submit" class="btn btn-secondary btn-lg btn-block">Agregar</button>     
                </form>

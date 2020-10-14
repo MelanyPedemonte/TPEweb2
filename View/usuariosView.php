@@ -50,6 +50,14 @@ class usuariosView{
         $smarty->display('templates/productosAdmin.tpl'); 
     }
 
+    function showProductoAdmin($producto, $categoria){
+        $smarty = new Smarty();
+        $smarty->assign('titulo', $this->title);
+        $smarty->assign('producto', $producto);
+        $smarty->assign('categoria', $categoria);
+        $smarty->display('templates/productoAdmin.tpl'); 
+    }
+
 
 
 

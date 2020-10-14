@@ -60,7 +60,7 @@
             }
             $productos = $this->model->getProductos();
             $categorias= $this->cmodel->getCategorias();
-            $this->uView->showVerify($productos, $categorias);
+            $this->uView->showProductosAdmin($productos, $categorias);
         }else{
             $this->uView->ShowLogin();
         }
@@ -73,7 +73,7 @@
             $this->model->eliminarProducto($id);
             $productos = $this->model->getProductos();
             $categorias= $this->cmodel->getCategorias();
-            $this->uView->showVerify($productos, $categorias);
+            $this->uView->showProductosAdmin($productos, $categorias);
         }else{
             $this->uView->ShowLogin();
         }
@@ -104,7 +104,7 @@
             }
             $productos = $this->model->getProductos();
             $categorias= $this->cmodel->getCategorias();
-            $this->uView->showVerify($productos, $categorias);
+            $this->uView->showProductoAdmin($productos, $categorias);
         }else{
             $this->uView->ShowLogin();
         }

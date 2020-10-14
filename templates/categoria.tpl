@@ -9,12 +9,18 @@
             {foreach from=$productos item=producto}
             
                <tr> 
-                    <div class="card" style="width: 18rem;">
-                         <div class="card-body">
-                              <h5 class="card-title"><a href="producto/{$producto.id_producto}"> {$producto.nombre_producto}</a></h5>
-                              <p class="card-text">${$producto.precio}</p>
-                         </div>
-                    </div>
+                    
+                        <div class="card" style="width: 18rem;">
+                              
+                              <div class="card-body">
+                                  <h5 class="card-title"><a href="producto/{$producto.id_producto}"> {$producto.nombre_producto}</a></h5>
+                                  <p class="card-text">${$producto.precio}</p>
+                              </div>
+                              <div class="card-footer">
+                                   <small class="text-muted"></small>
+                              </div>
+                        </div>
+                 
                   
                </tr>   
                  
@@ -27,4 +33,5 @@
 
 
 {include file="footer.tpl"}
+
 
