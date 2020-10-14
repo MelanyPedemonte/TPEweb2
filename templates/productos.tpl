@@ -11,10 +11,10 @@
                          <div class="card-body">
                               <h5 class="card-title"><a href="producto/{$producto->id_producto}"> {$producto->nombre_producto}</a></h5>
                               <p class="card-text"> ${$producto->precio}</p>
-                              <p class="card-text">{$producto->nombre_categoria}</p>
+                              <p class="card-text"><small class="text-muted">{$producto->nombre_categoria}</small></p>
                          </div>
                     </div>
-               </tr>      
+               </tr>    
                {/foreach}
           </tbody>
      </table>   

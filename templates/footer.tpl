@@ -2,8 +2,10 @@
 
 <div class="footer">
         <nav class="navbar navbar-light bg-light">
-            <span>Seguinos en las redes!</span>
+            <span>Seguínos en nuestras redes sociales!</span>
             <a class="link" href="https://www.instagram.com/tanrico.tandil" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a class="link" href="https://www.instagram.com/tanrico.tandil" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a class="link" href="https://wa.link/qbe9ui" target="_blank"><i class="fab fa-whatsapp"></i></a>
         </nav>
 
 </div>

@@ -66,7 +66,7 @@ class usuariosController{
 
             }else{
                 // No existe el user en la DB
-                $this->view->ShowLogin("El usuario no existe");
+                $this->view->ShowLogin("El usuario ingresado no es valido");
             }
         }
     }

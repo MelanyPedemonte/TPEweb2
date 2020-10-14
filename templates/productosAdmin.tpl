@@ -9,7 +9,7 @@
                <tr>
                     <div class="card" style="width: 18rem;">
                          <div class="card-body">
-                              <h5 class="card-title"><a href="producto/{$producto->id_producto}"> {$producto->nombre_producto}</a></h5>
+                              <h5 class="card-title">{$producto->nombre_producto}</h5>
                               <p class="card-text">{$producto->descripcion_producto}</p>
                               <p class="card-text">${$producto->precio}</p>
                               <p class="card-text">{$producto->nombre_categoria}</p>
