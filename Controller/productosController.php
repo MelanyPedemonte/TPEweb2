@@ -104,7 +104,7 @@
             }
             $productos = $this->model->getProductos();
             $categorias= $this->cmodel->getCategorias();
-            $this->uView->showProductoAdmin($productos, $categorias);
+            $this->uView->showProductosAdmin($productos, $categorias);
         }else{
             $this->uView->ShowLogin();
         }
