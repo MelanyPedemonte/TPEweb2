@@ -66,7 +66,7 @@ class usuariosController{
 
             }else{
                 // No existe el user en la DB
-                $this->view->ShowLogin("El usuario no existe");
+                $this->view->ShowLogin("El usuario ingresado no es valido");
             }
         }
     }
@@ -107,10 +107,18 @@ class usuariosController{
         $this->view->ShowProductosAdmin($productos, $categorias);
     }
 
+    function productoAdmin($params = null){
+        $id = $params[':ID'];
+        $producto = $this->pmodel->getProducto($id);
+        $categoria_id= $producto->id_categoria;
+        $categoria= $this->cmodel->getCategoria($categoria_id);
+        $this->view->showProductoAdmin($producto, $categoria);
+    }
+
     function categoriasAdmin(){
-        $categorias = $this->cmodel->GetCategorias();
-        $productos = $this->pmodel->GetProductos();
-        $this->view->ShowCategoriasAdmin($productos, $categorias);
+        $categoria = $this->cmodel->GetCategorias();
+        $producto = $this->pmodel->GetProductos();
+        $this->view->ShowCategoriasAdmin($producto, $categoria);
     }
 
 

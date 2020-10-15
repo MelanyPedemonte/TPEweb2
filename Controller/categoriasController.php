@@ -52,7 +52,7 @@ function InsertCategoria(){
         }
         $categorias = $this->model->getCategorias();
         $productos =$this->pmodel->getProductos();
-        $this->uView->ShowVerify($productos, $categorias);
+        $this->uView->ShowCategoriasAdmin($productos, $categorias);
     }else{
         $this->loginView->ShowLogin();
     }
@@ -65,7 +65,7 @@ function borrarCategoria($params = null){
         $this->model->eliminarCategoria($id);
         $categorias = $this->model->getCategorias();
         $productos =$this->pmodel->getProductos();
-        $this->uView->ShowVerify($productos, $categorias);
+        $this->uView->ShowCategoriasAdmin($productos, $categorias);
     }else{
         $this->loginView->ShowLogin();
     }
@@ -94,7 +94,7 @@ function editCategoria($params = null){
         }
         $categorias = $this->model->getCategorias();
         $productos =$this->pmodel->getProductos();
-        $this->uView->ShowVerify($productos, $categorias);
+        $this->uView->ShowCategoriasAdmin($productos, $categorias);
     }else{
         $this->loginView->ShowLogin();
     }

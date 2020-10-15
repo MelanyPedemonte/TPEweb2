@@ -24,7 +24,11 @@
                          </select>
                     </div> 
                     
-                         <button type="submit" class="btn btn-outline-success">Editar</button>     
+                         <button type="submit" class="btn btn-secondary btn-lg btn-block">Editar</button>     
                </form>
 </div>
+
+<a href="javascript: history.go(-1)">Volver</a
+
+
 {include file="footer.tpl"}
