@@ -29,9 +29,9 @@ function __construct(){
 //    $this->view->showHome();
 //}
 
-function traerCategorias(){
+function getCategorias(){
     $categorias = $this->model->getCategorias();
-    $this->view->Mostrar($categorias);
+    $this->view->showCategorias($categorias);
 }
 
 
@@ -42,13 +42,13 @@ function getCategoria($params = null){
     $this->view->showCategoria($categoria, $productos);
 }
 
-function InsertCategoria(){
+function addCategoria(){
     $logeado = $this->uControl->checkLoggedIn();
     if($logeado){
         if ((isset($_POST['nombre']) && isset($_POST['descripcion']))) {
             $nombre = $_POST['nombre'];
             $descripcion = $_POST['descripcion'];
-            $this->model->agregarCategoria($_POST['nombre'],$_POST['descripcion']);
+            $this->model->addCategoria($_POST['nombre'],$_POST['descripcion']);
         }
         $categorias = $this->model->getCategorias();
         $productos =$this->pmodel->getProductos();
@@ -58,11 +58,11 @@ function InsertCategoria(){
     }
 }
 
-function borrarCategoria($params = null){
+function deleteCategoria($params = null){
     $logeado = $this->uControl->checkLoggedIn();
     if($logeado){
         $id = $params[':ID'];
-        $this->model->eliminarCategoria($id);
+        $this->model->deleteCategoria($id);
         $categorias = $this->model->getCategorias();
         $productos =$this->pmodel->getProductos();
         $this->uView->ShowCategoriasAdmin($productos, $categorias);
@@ -71,7 +71,7 @@ function borrarCategoria($params = null){
     }
 }
 
-function mostrarEditCategoria($params = null){
+function getEditCategoria($params = null){
     $logeado = $this->uControl->checkLoggedIn();
     if($logeado){
         $id = $params[':ID'];
@@ -90,7 +90,7 @@ function editCategoria($params = null){
         if ((isset($_POST['nombre']) && isset($_POST['descripcion']))) {
             $nombre = $_POST['nombre'];
             $descripcion = $_POST['descripcion'];
-            $this->model->editarCategoria($id,$nombre,$descripcion);
+            $this->model->editCategoria($id,$nombre,$descripcion);
         }
         $categorias = $this->model->getCategorias();
         $productos =$this->pmodel->getProductos();

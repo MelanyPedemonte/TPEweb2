@@ -47,7 +47,7 @@
         $this->view->showProducto($producto, $categoria);
     }
 
-    function InsertProducto(){
+    function addProducto(){
         $logeado = $this->uControl->checkLoggedIn();
         if($logeado){
             $categorias= $this->cmodel->getCategorias();
@@ -56,7 +56,7 @@
                 $descripcion = $_POST['descripcion'];
                 $precio = $_POST['precio'];
                 $categoria = $_POST['categoria'];
-                $this->model->agregarProducto($nombre,$descripcion,$precio,$categoria);
+                $this->model->addProducto($nombre,$descripcion,$precio,$categoria);
             }
             $productos = $this->model->getProductos();
             $categorias= $this->cmodel->getCategorias();
@@ -66,11 +66,11 @@
         }
     }
 
-    function borrarProducto($params = null){
+    function deleteProducto($params = null){
         $logeado = $this->uControl->checkLoggedIn();
         if($logeado){
             $id = $params[':ID'];
-            $this->model->eliminarProducto($id);
+            $this->model->deleteProducto($id);
             $productos = $this->model->getProductos();
             $categorias= $this->cmodel->getCategorias();
             $this->uView->showProductosAdmin($productos, $categorias);
@@ -79,7 +79,7 @@
         }
     }
 
-    function mostrarEditProducto($params = null){
+    function showEditProducto($params = null){
         $logeado = $this->uControl->checkLoggedIn();
         if($logeado){
             $id = $params[':ID'];
@@ -100,7 +100,7 @@
                 $descripcion = $_POST['descripcion'];
                 $precio = $_POST['precio'];
                 $categoria = $_POST['categoria'];
-                $this->model->editarProducto($id,$nombre,$descripcion,$precio,$categoria);
+                $this->model->editProducto($id,$nombre,$descripcion,$precio,$categoria);
             }
             $productos = $this->model->getProductos();
             $categorias= $this->cmodel->getCategorias();

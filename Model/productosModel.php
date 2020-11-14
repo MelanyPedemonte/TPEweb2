@@ -31,18 +31,18 @@
             return $productos;
         }
 
-        function agregarProducto($nombre_producto,$descripcion_producto,$precio, $id_categoria){
+        function addProducto($nombre_producto,$descripcion_producto,$precio, $id_categoria){
             $sentencia=$this->db->prepare("INSERT INTO producto(nombre_producto, descripcion_producto, precio, id_categoria) 
             VALUES(?,?,?,?)");
             $sentencia->execute(array($nombre_producto,$descripcion_producto,$precio,$id_categoria));
         }
 
-        function eliminarProducto($id){
+        function deleteProducto($id){
             $sentencia = $this->db->prepare("DELETE FROM producto WHERE id_producto = ?");
             $sentencia->execute(array($id));
         }
 
-        function editarProducto($id,$nombre_producto,$descripcion_producto,$precio,$id_categoria){
+        function editProducto($id,$nombre_producto,$descripcion_producto,$precio,$id_categoria){
             $sentencia = $this->db->prepare("UPDATE producto SET nombre_producto=?, descripcion_producto=?, precio=?, id_categoria=? WHERE id_producto=?");
             $sentencia->execute(array($nombre_producto,$descripcion_producto,$precio, $id_categoria,$id));
         }

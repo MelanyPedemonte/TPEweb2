@@ -23,17 +23,17 @@
             return $categoria;
         }
 
-        function agregarCategoria($nombre_categoria,$descripcion_categoria){
+        function addCategoria($nombre_categoria,$descripcion_categoria){
             $sentencia=$this->db->prepare("INSERT INTO categoria(nombre_categoria, descripcion_categoria) VALUES(?,?)");
             $sentencia->execute(array($nombre_categoria,$descripcion_categoria));
         }
 
-        function eliminarCategoria($id){
+        function deleteCategoria($id){
             $sentencia = $this->db->prepare("DELETE FROM categoria WHERE id_categoria = ?");
             $sentencia->execute(array($id));
         }
         
-        function editarCategoria($id,$nombre_categoria,$descripcion_categoria){
+        function editCategoria($id,$nombre_categoria,$descripcion_categoria){
             $sentencia = $this->db->prepare("UPDATE categoria SET nombre_categoria=?, descripcion_categoria=? WHERE id_categoria=?");
             $sentencia->execute(array($nombre_categoria,$descripcion_categoria,$id));
         }
