@@ -11,31 +11,34 @@
     $route = new Router();
 
     //productos
-    $route->addRoute("home","GET","productosController","home");
     $route->addRoute("contacto","GET","productosController","contacto");
-    $route->addRoute("productos","GET","productosController","traerProductos");
+    $route->addRoute("productos","GET","productosController","getProductos");
     $route->addRoute("producto/:ID","GET","productosController","getProducto");
     $route->addRoute("addProducto", "POST", "productosController", "addProducto");
     $route->addRoute("deleteproducto/:ID","GET","productosController","deleteProducto");
     $route->addRoute("editP/:ID", "GET", "productosController", "showEditProducto");
     $route->addRoute("editarProducto/:ID","POST","productosController","editProducto");
+    $route->addRoute("productosAdmin","GET","productosController","productosAdmin");
+    $route->addRoute("productoAdmin/:ID","GET","productosController","productoAdmin");
 
     //categorias
     $route->addRoute("categorias","GET","categoriasController","getCategorias");
     $route->addRoute("categoria/:ID","GET","categoriasController","getCategoria");
     $route->addRoute("addCategoria", "POST", "categoriasController", "addCategoria");
     $route->addRoute("deletecategoria/:ID","GET","categoriasController","deleteCategoria");
-    $route->addRoute("editC/:ID", "GET", "categoriasController", "getEditCategoria");
+    $route->addRoute("editC/:ID", "GET", "categoriasController", "showEditCategoria");
     $route->addRoute("editarCategoria/:ID","POST","categoriasController","editCategoria");
+    $route->addRoute("categoriasAdmin","GET","categoriasController","categoriasAdmin");
 
     //usuarios
-    $route->addRoute("login", "GET", "usuariosController", "Login");
-    $route->addRoute("logout", "GET", "usuariosController", "Logout");
-    $route->addRoute("verifyUser", "POST", "usuariosController", "VerifyUser");
+    $route->addRoute("login", "GET", "usuariosController", "login");
+    $route->addRoute("logout", "GET", "usuariosController", "logout");
+    $route->addRoute("verifyUser", "POST", "usuariosController", "verifyUser");
     $route->addRoute("newUser", "POST", "usuariosController", "newUsuario");
-    $route->addRoute("productosAdmin","GET","usuariosController","productosAdmin");
-    $route->addRoute("productoAdmin/:ID","GET","usuariosController","productoAdmin");
-    $route->addRoute("categoriasAdmin","GET","usuariosController","categoriasAdmin");
+
+    //home
+    $route->addRoute("home","GET","productosController","home");
+    $route->addRoute("homeAdmin","GET","productosController","homeAdmin");
     $route->addRoute("contactoUsuario","GET","usuariosController","contactoUsuario");
 
 

@@ -4,23 +4,27 @@
                <form id="formview" action="editarProducto/{$producto->id_producto}" method="post">
                     <div class="form-group">
                          <label> Nombre: </label>
-                         <input value=" " name="nombre" type="text" class="form-control" placeholder="Nombre">
+                         <input name="nombre" type="text" class="form-control" placeholder="Nombre" value="{$producto->nombre_producto}" required>
                     </div>
                     <div class="form-group">
                          <label> Descripcion: </label>
-                         <input value=" " name="descripcion" type="text" class="form-control" placeholder="Descripcion">
+                         <input name="descripcion" type="text" class="form-control" placeholder="Descripcion" value="{$producto->descripcion_producto}" required>
                     </div>
                     <div class="form-group">
                          <label> Precio: </label>
-                         <input value=" " name="precio" type="text" class="form-control" placeholder="Precio">
+                         <input name="precio" type="text" class="form-control" placeholder="Precio" value="{$producto->precio}" required>
                     </div>
                     <div class="form-group">
                          <label for="inputState">Seleccione Categoria:</label>
                          <select  class="form-control" name="categoria">
                          <option> Seleccione  </option>
-                              {foreach from=$categorias item=categoria}
-                              <option value="{$categoria->id_categoria} ">{$categoria->nombre_categoria}</option>
-                              {/foreach}
+                             {foreach from=$categorias item=categoria}
+                                 {if $categoria->id_categoria == $producto->id_categoria}
+                                     <option selected="{$categoria->id_categoria}" value="{$categoria->id_categoria}">{$categoria->nombre_categoria}</option>
+                                 {else}
+                                     <option value="{$categoria->id_categoria}">{$categoria->nombre_categoria}</option>
+                                 {/if}
+                             {/foreach}
                          </select>
                     </div> 
                     

@@ -4,11 +4,11 @@
                <form id="formview" action="editarCategoria/{$categoria->id_categoria}" method="post">
                     <div class="form-group">
                          <label> Nombre: </label>
-                         <input value=" " name="nombre" type="text" class="form-control" placeholder="Nombre">
+                         <input name="nombre" type="text" class="form-control" placeholder="Nombre" value="{$categoria->nombre_categoria}" required>
                     </div>
                     <div class="form-group">
                          <label> Descripcion: </label>
-                         <input value=" " name="descripcion" type="text" class="form-control" placeholder="Descripcion">
+                         <input name="descripcion" type="text" class="form-control" placeholder="Descripcion" value="{$categoria->descripcion_categoria}" required>
                     </div>
                          <button type="submit" class="btn btn-secondary btn-lg btn-block">Editar</button>     
                </form> 

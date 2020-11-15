@@ -3,8 +3,7 @@
     require_once "./View/productosView.php";
     require_once "./Model/productosModel.php";
     require_once "./Model/categoriasModel.php";
-    require_once "./View/usuariosView.php";
-    require_once "./Controller/usuariosController.php";
+    require_once "./Helpers/authHelper.php";
 
 
 
@@ -13,30 +12,32 @@
         private $view;
         private $model;
         private $cmodel;
-        private $uView;
-        private $uControl;
+
 
     function __construct(){
         $this->view = new productosView();
         $this->model = new productosModel();
         $this->cmodel = new categoriasModel();
-        $this->uView = new usuariosView();
-        $this->uControl = new usuariosController();
         $this->titulo = "Tan Rico";
     }
 
     function home(){
-        $this->view->showHome();
+		$this->view->showHome();
     }
+
+    function homeAdmin() {
+        authHelper::checkLogged();
+        $this->view->showHomeAdmin();
+	}
 
     function contacto(){
         $this->view->showContacto();
     }
 
-    function traerProductos(){
+    function getProductos(){
         $categorias= $this->cmodel->getCategorias();
         $productos = $this->model->getProductos();
-        $this->view->Mostrar($productos, $categorias);
+        $this->view->mostrar($productos, $categorias);
     }
 
     function getProducto($params = null){
@@ -48,67 +49,62 @@
     }
 
     function addProducto(){
-        $logeado = $this->uControl->checkLoggedIn();
-        if($logeado){
-            $categorias= $this->cmodel->getCategorias();
-            if ((isset($_POST['nombre']) && isset($_POST['descripcion'])) && (isset($_POST['precio']) && isset($_POST['categoria']))) {
-                $nombre = $_POST['nombre'];
-                $descripcion = $_POST['descripcion'];
-                $precio = $_POST['precio'];
-                $categoria = $_POST['categoria'];
-                $this->model->addProducto($nombre,$descripcion,$precio,$categoria);
-            }
-            $productos = $this->model->getProductos();
-            $categorias= $this->cmodel->getCategorias();
-            $this->uView->showProductosAdmin($productos, $categorias);
-        }else{
-            $this->uView->ShowLogin();
+        authHelper::checkLogged();
+        $categorias= $this->cmodel->getCategorias();
+        if ((isset($_POST['nombre']) && isset($_POST['descripcion'])) && (isset($_POST['precio']) && isset($_POST['categoria']))) {
+            $nombre = $_POST['nombre'];
+            $descripcion = $_POST['descripcion'];
+            $precio = $_POST['precio'];
+            $categoria = $_POST['categoria'];
+            $this->model->addProducto($nombre,$descripcion,$precio,$categoria);
         }
+        header("Location: ".BASE_URL. "productosAdmin" );
     }
 
     function deleteProducto($params = null){
-        $logeado = $this->uControl->checkLoggedIn();
-        if($logeado){
-            $id = $params[':ID'];
-            $this->model->deleteProducto($id);
-            $productos = $this->model->getProductos();
-            $categorias= $this->cmodel->getCategorias();
-            $this->uView->showProductosAdmin($productos, $categorias);
-        }else{
-            $this->uView->ShowLogin();
-        }
+        authHelper::checkLogged();
+        $id = $params[':ID'];
+        $this->model->deleteProducto($id);
+        header("Location: ".BASE_URL. "productosAdmin");
     }
 
     function showEditProducto($params = null){
-        $logeado = $this->uControl->checkLoggedIn();
-        if($logeado){
-            $id = $params[':ID'];
-            $producto = $this->model->getProducto($id);
-            $categorias =$this->cmodel->getCategorias();
-            $this->view->showEditProducto($producto, $categorias);
-        }else{
-            $this->loginView->ShowLogin();
-        }
+        authHelper::checkLogged();
+        $id = $params[':ID'];
+        $producto = $this->model->getProducto($id);
+        $categorias =$this->cmodel->getCategorias();
+        $this->view->showEditProducto($producto, $categorias);
     }
 
     function editProducto($params = null){
-        $logeado = $this->uControl->checkLoggedIn();
-        if($logeado){
-            $id = $params[':ID'];
-            if ((isset($_POST['nombre']) && isset($_POST['descripcion'])) && (isset($_POST['precio']) && isset($_POST['categoria']))) {
-                $nombre = $_POST['nombre'];
-                $descripcion = $_POST['descripcion'];
-                $precio = $_POST['precio'];
-                $categoria = $_POST['categoria'];
-                $this->model->editProducto($id,$nombre,$descripcion,$precio,$categoria);
-            }
-            $productos = $this->model->getProductos();
-            $categorias= $this->cmodel->getCategorias();
-            $this->uView->showProductosAdmin($productos, $categorias);
-        }else{
-            $this->uView->ShowLogin();
+        authHelper::checkLogged();
+        $id = $params[':ID'];
+        if ((isset($_POST['nombre']) && isset($_POST['descripcion'])) && (isset($_POST['precio']) && isset($_POST['categoria']))) {
+            $nombre = $_POST['nombre'];
+            $descripcion = $_POST['descripcion'];
+            $precio = $_POST['precio'];
+            $categoria = $_POST['categoria'];
+            $this->model->editProducto($id,$nombre,$descripcion,$precio,$categoria);
         }
+        header("Location: ".BASE_URL. "productosAdmin");
     }
+
+    function productosAdmin() {
+        authHelper::checkLogged();
+        $productos = $this->model->getProductos();
+        $categorias= $this->cmodel->getCategorias();
+		$this->view->showProductosAdmin($productos, $categorias);
+    }
+    
+    function productoAdmin($params = null){
+        authHelper::checkLogged();
+        $id = $params[':ID'];
+        $producto = $this->model->getProducto($id);
+        $categoria_id= $producto->id_categoria;
+        $categoria= $this->cmodel->getCategoria($categoria_id);
+        $this->view->showProductoAdmin($producto, $categoria);
+    }
+
 
 
 }

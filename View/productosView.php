@@ -22,7 +22,12 @@ class productosView{
 
         }
 
-        function Mostrar($productos, $categorias){
+        function showHomeAdmin() {
+            $smarty = new Smarty();
+		    $smarty->display('templates/homeUsuario.tpl');      
+        }
+
+        function mostrar($productos, $categorias){
             $this->smarty->assign('titulo', $this->titulo);
             $this->smarty->assign('productos',$productos);
             $this->smarty->assign('categorias',$categorias);
@@ -43,6 +48,29 @@ class productosView{
             $this->smarty->assign('categorias',$categorias);
             $this->smarty->display('templates/editProducto.tpl');
         }
+
+        function showError($mensaje){
+            $this->smarty->assign('titulo', $this->titulo);
+            $this->smarty->assign('mensaje',$mensaje);
+            $this->smarty->display('templates/error.tpl');
+        }
+
+        function showProductosAdmin($productos, $categorias){
+            $smarty = new Smarty();
+            $smarty->assign('titulo', $this->titulo);
+            $smarty->assign('productos', $productos);
+            $smarty->assign('categorias', $categorias);
+            $smarty->display('templates/productosAdmin.tpl'); 
+        }
+
+        function showProductoAdmin($producto, $categoria){
+            $smarty = new Smarty();
+            $smarty->assign('titulo', $this->titulo);
+            $smarty->assign('producto', $producto);
+            $smarty->assign('categoria', $categoria);
+            $smarty->display('templates/productoAdmin.tpl'); 
+        }
+        
 
 
 }

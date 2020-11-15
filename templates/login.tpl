@@ -13,7 +13,7 @@
        <form action="verifyUser" method="post">
                     <div class="form-group">
                         <label for="user">Email: </label>
-                        <input class="form-control" id="user" name="input_user" aria-describedby="emailHelp">
+                        <input class="form-control" id="user" name="input_user">
                 
                     </div>
                     <div class="form-group">

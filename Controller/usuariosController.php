@@ -2,71 +2,50 @@
 
 require_once "./View/usuariosView.php";
 require_once "./Model/usuariosModel.php";
-require_once "./Model/productosModel.php";
-require_once "./Model/categoriasModel.php";
+require_once "./Helpers/authHelper.php";
 
 class usuariosController{
 
     private $view;
     private $model;
-    private $pmodel;
-    private $cmodel;
+
 
     function __construct(){
         $this->view = new usuariosView();
         $this->model = new usuariosModel();
-        $this->pmodel = new productosModel();
-        $this->cmodel = new categoriasModel();
-
     }
 
     function contactoUsuario(){
         $this->view->showContactoUsuario();
     }
 
-    function Login(){
-        $logeado = $this->checkLoggedIn();
-        if($logeado){
-            $this->ShowAdmin();
-        } else {
-            $this->view->ShowLogin();
-        }
+    function login(){
+        $this->view->showLogin();
     }
 
-    function Logout(){
-        session_start();
-        session_destroy();
-        header("Location: ".LOGIN);
-
+    function logout(){
+        authHelper::logout();
+        header("Location:".BASE_URL."home");
     }
 
-    function VerifyUser(){
+    function verifyUser(){
         $user = $_POST["input_user"];
         $pass = $_POST["input_pass"];
 
         if(isset($user)){
-            $userFromDB = $this->model->GetUser($user);
-
+            $userFromDB = $this->model->getUser($user);
             if(isset($userFromDB) && $userFromDB){
                 // Existe el usuario
-
                 if (password_verify($pass, $userFromDB->pass)){
-
-                    session_start();
-                    if(isset($_SESSION['LAST_ACTIVITY']) && (time()-$_SESSION['LAST_ACTIVITY']>1000)){
-                        header("Location: ".LOGOUT);
-                    }
-                    $_SESSION["EMAIL"] = $userFromDB->email;
-                    $_SESSION['LAST_ACTIVITY'] = time();
-                    $this->ShowAdmin();
+                    authHelper::login($user);
+                    header("Location:".BASE_URL."homeAdmin");
                 }else{
-                    $this->view->ShowLogin("Contraseña incorrecta");
+                    $this->view->showLogin("Contraseña incorrecta");
+
                 }
-
-
             }else{
                 // No existe el user en la DB
-                $this->view->ShowLogin("El usuario ingresado no es valido");
+                header("Location:".BASE_URL."home");
             }
         }
     }
@@ -87,40 +66,6 @@ class usuariosController{
             $this->view->showLogin("ERROR, no se creo el usuario");
         }
     }
-
-    function checkLoggedIn(){
-        session_start();
-        if(!isset($_SESSION['EMAIL'])){
-            return false;
-        }else return true;
-    }  
-
-    function ShowAdmin(){
-        $categorias = $this->cmodel->GetCategorias();
-        $productos = $this->pmodel->GetProductos();
-        $this->view->ShowVerify($productos, $categorias);
-    }
-
-    function productosAdmin(){
-        $categorias = $this->cmodel->GetCategorias();
-        $productos = $this->pmodel->GetProductos();
-        $this->view->ShowProductosAdmin($productos, $categorias);
-    }
-
-    function productoAdmin($params = null){
-        $id = $params[':ID'];
-        $producto = $this->pmodel->getProducto($id);
-        $categoria_id= $producto->id_categoria;
-        $categoria= $this->cmodel->getCategoria($categoria_id);
-        $this->view->showProductoAdmin($producto, $categoria);
-    }
-
-    function categoriasAdmin(){
-        $categoria = $this->cmodel->GetCategorias();
-        $producto = $this->pmodel->GetProductos();
-        $this->view->ShowCategoriasAdmin($producto, $categoria);
-    }
-
 
 }
 

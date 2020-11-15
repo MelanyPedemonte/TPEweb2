@@ -25,11 +25,8 @@
                <li class="nav-item dropdown">
                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Categorias</a>
                      <div class="dropdown-menu">
-                          <a class="dropdown-item" href="productos">Todos los productos</a>
-                          <a class="dropdown-item" href="categoria/1">Cosas dulces</a>
-                          <a class="dropdown-item" href="categoria/2">Cosas saladas</a>
-                     <div class="dropdown-divider"></div>
-                 <a class="dropdown-item" href="categorias">Ver más categorias</a>
+                          <a class="dropdown-item" href="productos">Ver todos los productos</a>
+                 <a class="dropdown-item" href="categorias">Ver todas categorias</a>
                </li>
                <li class="nav-item">
                   <a class="nav-link" href="contacto">Contacto</a>
