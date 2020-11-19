@@ -14,8 +14,6 @@
                               </div>
                         </div>
         
-    
+    {include file="vue/comentario.tpl"}
     <a href="javascript: history.go(-1)">Volver</a
- 
-
 {include file= "footer.tpl"}
