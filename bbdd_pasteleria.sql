@@ -2,10 +2,10 @@
 -- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 16-11-2020 a las 01:41:25
--- Versión del servidor: 10.4.13-MariaDB
--- Versión de PHP: 7.3.19
+-- Host: 127.0.0.1
+-- Generation Time: Nov 20, 2020 at 05:26 AM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.4.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `bbdd_pasteleria`
+-- Database: `bbdd_pasteleria`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `categoria`
+-- Table structure for table `categoria`
 --
 
 CREATE TABLE `categoria` (
@@ -34,7 +34,7 @@ CREATE TABLE `categoria` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `categoria`
+-- Dumping data for table `categoria`
 --
 
 INSERT INTO `categoria` (`id_categoria`, `nombre_categoria`, `descripcion_categoria`) VALUES
@@ -46,7 +46,7 @@ INSERT INTO `categoria` (`id_categoria`, `nombre_categoria`, `descripcion_catego
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `comentario`
+-- Table structure for table `comentario`
 --
 
 CREATE TABLE `comentario` (
@@ -57,10 +57,17 @@ CREATE TABLE `comentario` (
   `comentario` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `comentario`
+--
+
+INSERT INTO `comentario` (`id_comentario`, `id_producto`, `id_usuario`, `valoracion`, `comentario`) VALUES
+(1, 1, 1, 5, 'Comentario de prueba 1');
+
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `producto`
+-- Table structure for table `producto`
 --
 
 CREATE TABLE `producto` (
@@ -72,7 +79,7 @@ CREATE TABLE `producto` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `producto`
+-- Dumping data for table `producto`
 --
 
 INSERT INTO `producto` (`id_producto`, `nombre_producto`, `descripcion_producto`, `precio`, `id_categoria`) VALUES
@@ -84,36 +91,37 @@ INSERT INTO `producto` (`id_producto`, `nombre_producto`, `descripcion_producto`
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuario`
+-- Table structure for table `usuario`
 --
 
 CREATE TABLE `usuario` (
   `id_usuario` int(11) NOT NULL,
   `usuario` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `pass` varchar(200) NOT NULL
+  `pass` varchar(200) NOT NULL,
+  `admin` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `usuario`
+-- Dumping data for table `usuario`
 --
 
-INSERT INTO `usuario` (`id_usuario`, `usuario`, `email`, `pass`) VALUES
-(1, 'melany', 'melanypedemonte@gmail.com', '$2y$10$E9n3ivnxwPcPcHKW8cVFV.W//AXXPhkpglt40FnFefK2.P3Up4y.y'),
-(3, 'rocio', 'rocio.figueroa.salome@gmail.com', '$2y$10$BQo5NbGrGK1em4fTTF2OhOm/IsppWRG5nHr5gHmW4cAgY3.CrYrdK');
+INSERT INTO `usuario` (`id_usuario`, `usuario`, `email`, `pass`, `admin`) VALUES
+(1, 'melany', 'melanypedemonte@gmail.com', '$2y$10$E9n3ivnxwPcPcHKW8cVFV.W//AXXPhkpglt40FnFefK2.P3Up4y.y', 1),
+(3, 'rocio', 'rocio.figueroa.salome@gmail.com', '$2y$10$BQo5NbGrGK1em4fTTF2OhOm/IsppWRG5nHr5gHmW4cAgY3.CrYrdK', 1);
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `categoria`
+-- Indexes for table `categoria`
 --
 ALTER TABLE `categoria`
   ADD PRIMARY KEY (`id_categoria`);
 
 --
--- Indices de la tabla `comentario`
+-- Indexes for table `comentario`
 --
 ALTER TABLE `comentario`
   ADD PRIMARY KEY (`id_comentario`),
@@ -121,59 +129,59 @@ ALTER TABLE `comentario`
   ADD KEY `id_usuario` (`id_usuario`);
 
 --
--- Indices de la tabla `producto`
+-- Indexes for table `producto`
 --
 ALTER TABLE `producto`
   ADD PRIMARY KEY (`id_producto`),
   ADD KEY `id_categoria` (`id_categoria`);
 
 --
--- Indices de la tabla `usuario`
+-- Indexes for table `usuario`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`id_usuario`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `categoria`
+-- AUTO_INCREMENT for table `categoria`
 --
 ALTER TABLE `categoria`
   MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT de la tabla `comentario`
+-- AUTO_INCREMENT for table `comentario`
 --
 ALTER TABLE `comentario`
-  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT de la tabla `producto`
+-- AUTO_INCREMENT for table `producto`
 --
 ALTER TABLE `producto`
   MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT de la tabla `usuario`
+-- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
   MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- Restricciones para tablas volcadas
+-- Constraints for dumped tables
 --
 
 --
--- Filtros para la tabla `comentario`
+-- Constraints for table `comentario`
 --
 ALTER TABLE `comentario`
   ADD CONSTRAINT `comentario_ibfk_1` FOREIGN KEY (`id_producto`) REFERENCES `producto` (`id_producto`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `comentario_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`);
 
 --
--- Filtros para la tabla `producto`
+-- Constraints for table `producto`
 --
 ALTER TABLE `producto`
   ADD CONSTRAINT `producto_ibfk_1` FOREIGN KEY (`id_categoria`) REFERENCES `categoria` (`id_categoria`) ON DELETE CASCADE ON UPDATE CASCADE;
