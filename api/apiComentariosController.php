@@ -17,7 +17,7 @@ class apiComentariosController extends ApiController{
         $comentario = $this->model->deleteComentario($id);
         
         if($comentario > 0) {
-            $this->view->response("El comentario con el id=$id fue eliminada", 200);
+            $this->view->response("El comentario con el id=$id fue eliminado", 200);
         } else {
             $this->view->response("El comentario con el id=$id no existe", 404);
         }
@@ -30,9 +30,9 @@ class apiComentariosController extends ApiController{
         $commentId = $this->model->addComentario($comment->id_producto, $comment->id_usuario, $comment->valoracion, $comment->comentario);
 
         if (!empty($commentId))
-            $this->view->response($this->model->getComment($commentId), 200);
+            $this->view->response($this->model->getComentario($commentId), 200);
         else
-            $this->view->response("Error al insertar comment", 500);;
+            $this->view->response("Error al insertar comentario", 500);;
     }
 
 }

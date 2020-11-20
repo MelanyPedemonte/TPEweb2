@@ -1,4 +1,4 @@
-{include file="headerUsuario.tpl"}
+{include file="headerAdmin.tpl"}
 
                         <div class="card" style="width: 18rem;">
                               

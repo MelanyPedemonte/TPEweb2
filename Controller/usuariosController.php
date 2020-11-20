@@ -33,12 +33,12 @@ class usuariosController{
         $pass = $_POST["input_pass"];
 
         if(isset($user)){
-            $userFromDB = $this->model->getUser($user);
+            $userFromDB = $this->model->getUsuario($user);
             if(isset($userFromDB) && $userFromDB){
                 // Existe el usuario
                 if (password_verify($pass, $userFromDB->pass)){
                     authHelper::login($user);
-                    header("Location:".BASE_URL."homeAdmin");
+                    header("Location:".BASE_URL."homeUsuario");
                 }else{
                     $this->view->showLogin("Contraseña incorrecta");
 
@@ -59,7 +59,7 @@ class usuariosController{
 
         if(!empty($mail) && !empty($password)&& !empty($user)){
             
-            $this->model->agregarUsuario($user, $mail, $pass);
+            $this->model->addUsuario($user, $mail, $pass);
             header('Location: ' . BASE_URL); 
         }
         else {

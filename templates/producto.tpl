@@ -11,9 +11,13 @@
                                    <small class="text-muted">{$categoria->nombre_categoria}</small>
                               </div>
                         </div>
+                        <div>
+                            {include file="vue/comentarios.vue"}
+                        </div>
         
     
-    <a href="javascript: history.go(-1)">Volver</a
- 
+    <a href="javascript: history.go(-1)">Volver</a>
 
+
+<script src="js/main.js"></script>
 {include file= "footer.tpl"}

@@ -2,11 +2,14 @@
     require_once 'Controller/productosController.php';
     require_once 'Controller/categoriasController.php';
     require_once 'Controller/usuariosController.php';
+    require_once 'Controller/adminController.php';
     require_once 'RouterClass.php';
     
     define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');
     //define("URL_productoss", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/productos');
-    
+    define("LOGIN", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/login');
+    define("LOGOUT", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/logout');
+
 
     $route = new Router();
 
@@ -35,6 +38,11 @@
     $route->addRoute("logout", "GET", "usuariosController", "logout");
     $route->addRoute("verifyUser", "POST", "usuariosController", "verifyUser");
     $route->addRoute("newUser", "POST", "usuariosController", "newUsuario");
+
+    //usuarios admin
+    $route->addRoute("deleteUsuario/:ID", "GET", "adminController", "deleteUsuario");
+    $route->addRoute("editU/:ID", "GET", "adminController", "showEditUsuario");
+    $route->addRoute("editUsuario/:ID", "POST", "adminController", "editarUsuario");
 
     //home
     $route->addRoute("home","GET","productosController","home");

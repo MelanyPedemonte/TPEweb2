@@ -28,7 +28,7 @@ class comentariosModel{
         $sentencia->execute(array($id));
     }
     
-    function getComment($id){
+    function getComentario($id){
         $sentencia = $this->db->prepare('SELECT * FROM comentario WHERE id_comentario=?');
         $sentencia->execute([$id]);
         $comentario= $sentencia->fetch(PDO::FETCH_OBJ);

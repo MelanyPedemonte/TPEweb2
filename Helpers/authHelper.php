@@ -42,6 +42,15 @@ class authHelper {
 		session_destroy();
 	}
 
+	static function esAdmin(){
+        self::start();
+        if($_SESSION['ADMIN'] == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 
 }
 
