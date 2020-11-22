@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 20, 2020 at 05:26 AM
+-- Generation Time: Nov 23, 2020 at 12:48 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -75,6 +75,7 @@ CREATE TABLE `producto` (
   `nombre_producto` varchar(50) NOT NULL,
   `descripcion_producto` text NOT NULL,
   `precio` float NOT NULL,
+  `imagen` varchar(50) NOT NULL,
   `id_categoria` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -82,11 +83,11 @@ CREATE TABLE `producto` (
 -- Dumping data for table `producto`
 --
 
-INSERT INTO `producto` (`id_producto`, `nombre_producto`, `descripcion_producto`, `precio`, `id_categoria`) VALUES
-(1, 'Brownie', 'Brownie de 20x20, con o sin nueces.', 350, 1),
-(2, 'Budin', 'Budin de vainilla con o sin chispas', 80, 1),
-(3, 'Sandwich de miga', 'Docena de sandwich de miga', 320, 2),
-(5, 'Box -Dia de la Madre', 'Este box incluye: \r\n-1 taza de vidrio. \r\n-2 tartas individuales a elección. (pastafrola, tarta cabsha o de coco)\r\n-2 alfajores de maicena. \r\n-3 galletitas.\r\n-2 budines individuales.\r\n-1 bolsita de biscochitos.\r\n-1 te(clásico o verde). ', 500, 5);
+INSERT INTO `producto` (`id_producto`, `nombre_producto`, `descripcion_producto`, `precio`, `imagen`, `id_categoria`) VALUES
+(1, 'Brownie', 'Brownie de 20x20, con o sin nueces.', 350, '', 1),
+(2, 'Budin', 'Budin de vainilla con o sin chispas', 80, '', 1),
+(3, 'Sandwich de miga', 'Docena de sandwich de miga', 320, '', 2),
+(5, 'Box -Dia de la Madre', 'Este box incluye: \r\n-1 taza de vidrio. \r\n-2 tartas individuales a elección. (pastafrola, tarta cabsha o de coco)\r\n-2 alfajores de maicena. \r\n-3 galletitas.\r\n-2 budines individuales.\r\n-1 bolsita de biscochitos.\r\n-1 te(clásico o verde). ', 500, '', 5);
 
 -- --------------------------------------------------------
 
@@ -108,7 +109,8 @@ CREATE TABLE `usuario` (
 
 INSERT INTO `usuario` (`id_usuario`, `usuario`, `email`, `pass`, `admin`) VALUES
 (1, 'melany', 'melanypedemonte@gmail.com', '$2y$10$E9n3ivnxwPcPcHKW8cVFV.W//AXXPhkpglt40FnFefK2.P3Up4y.y', 1),
-(3, 'rocio', 'rocio.figueroa.salome@gmail.com', '$2y$10$BQo5NbGrGK1em4fTTF2OhOm/IsppWRG5nHr5gHmW4cAgY3.CrYrdK', 1);
+(3, 'rocio', 'rocio.figueroa.salome@gmail.com', '$2y$10$BQo5NbGrGK1em4fTTF2OhOm/IsppWRG5nHr5gHmW4cAgY3.CrYrdK', 1),
+(5, 'ejemplo', 'example@gmail.com', '$2y$10$aeUe.XcDiISxx4zPAApXD.s8rydRr28M7Iu8AYZFdeUW3LpNZNZm.', 0);
 
 --
 -- Indexes for dumped tables
@@ -167,7 +169,7 @@ ALTER TABLE `producto`
 -- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
