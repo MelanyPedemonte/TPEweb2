@@ -1,4 +1,4 @@
-{include file="headerAdmin.tpl"}
+{include file="header.tpl"}
 <section class="contenedor_table">
     <table class="table table-bordered">
         <thead>

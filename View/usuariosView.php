@@ -4,25 +4,22 @@ require_once "./libs/smarty/Smarty.class.php";
 
 class usuariosView{
 
-    private $title;
+    private $smarty;
+    private $titulo;
     
 
     function __construct(){
-        $this->title = "Login";
+        $this->smarty = new Smarty();
     }
 
-    function showContactoUsuario(){
-        $smarty = new Smarty();
-        $smarty->assign('titulo_s', $this->title);
-        $smarty->display('templates/contactoUsuario.tpl');
-
+    function showUsuarios($usuarios){
+        $this->smarty->assign('usuarios', $usuarios);
+        $this->smarty->display('templates/usuarios.tpl'); 
     }
 
-    function showLogin($message = ""){
-        $smarty = new Smarty();
-        $smarty->assign('titulo_s', $this->title);
-        $smarty->assign('message', $message);
-        $smarty->display('templates/login.tpl'); 
+    function showEditUsuario($usuario){
+        $this->smarty->assign('usuario', $usuario);
+        $this->smarty->display('templates/editUsuario.tpl'); 
     }
 
 }

@@ -20,15 +20,10 @@ class categoriasController{
         $this->titulo = "Tan Rico";
     }
     
-    //function home(){
-    //    $this->view->showHome();
-    //}
-    
     function getCategorias(){
         $categorias = $this->model->getCategorias();
         $this->view->showCategorias($categorias);
     }
-    
     
     function getCategoria($params = null){
         $id = $params[':ID'];  
@@ -74,6 +69,7 @@ class categoriasController{
     }
     
     function categoriasAdmin(){
+        authHelper::checkLogged();
         $categoria = $this->model->GetCategorias();
         $producto = $this->pmodel->GetProductos();
         $this->view->ShowCategoriasAdmin($producto, $categoria);

@@ -1,4 +1,4 @@
-{include file="headerUsuario.tpl"}
+{include file="header.tpl"}
 <div>
 <h3>Editar Categoria</h3>
                <form id="formview" action="editarCategoria/{$categoria->id_categoria}" method="post">

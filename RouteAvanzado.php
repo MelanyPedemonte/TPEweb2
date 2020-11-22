@@ -2,7 +2,7 @@
     require_once 'Controller/productosController.php';
     require_once 'Controller/categoriasController.php';
     require_once 'Controller/usuariosController.php';
-    require_once 'Controller/adminController.php';
+    require_once 'Controller/authController.php';
     require_once 'RouterClass.php';
     
     define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');
@@ -14,7 +14,6 @@
     $route = new Router();
 
     //productos
-    $route->addRoute("contacto","GET","productosController","contacto");
     $route->addRoute("productos","GET","productosController","getProductos");
     $route->addRoute("producto/:ID","GET","productosController","getProducto");
     $route->addRoute("addProducto", "POST", "productosController", "addProducto");
@@ -34,20 +33,21 @@
     $route->addRoute("categoriasAdmin","GET","categoriasController","categoriasAdmin");
 
     //usuarios
-    $route->addRoute("login", "GET", "usuariosController", "login");
-    $route->addRoute("logout", "GET", "usuariosController", "logout");
-    $route->addRoute("verifyUser", "POST", "usuariosController", "verifyUser");
-    $route->addRoute("newUser", "POST", "usuariosController", "newUsuario");
+    $route->addRoute("registro", "GET", "authController", "showRegistro");
+    $route->addRoute("login", "GET", "authController", "showLogin");
+    $route->addRoute("logout", "GET", "authController", "logout");
+    $route->addRoute("verifyUser", "POST", "authController", "login");
+    $route->addRoute("newUser", "POST", "authController", "newUsuario");
 
     //usuarios admin
-    $route->addRoute("deleteUsuario/:ID", "GET", "adminController", "deleteUsuario");
-    $route->addRoute("editU/:ID", "GET", "adminController", "showEditUsuario");
-    $route->addRoute("editUsuario/:ID", "POST", "adminController", "editarUsuario");
+    $route->addRoute("usuariosAdmin", "GET", "usuariosController", "showUsuarios");
+    $route->addRoute("deleteUsuario/:ID", "GET", "usuariosController", "deleteUsuario");
+    $route->addRoute("editU/:ID", "GET", "usuariosController", "showEditUsuario");
+    $route->addRoute("editUsuario/:ID", "POST", "usuariosController", "editUsuario");
 
     //home
     $route->addRoute("home","GET","productosController","home");
-    $route->addRoute("homeAdmin","GET","productosController","homeAdmin");
-    $route->addRoute("contactoUsuario","GET","usuariosController","contactoUsuario");
+    $route->addRoute("contacto","GET","productosController","contacto");
 
 
 

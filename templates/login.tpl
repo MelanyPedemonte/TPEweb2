@@ -24,6 +24,10 @@
                     <button type="submit" class="btn btn-secondary btn-lg btn-block">Ingresar</button>
         </form>
 
+        <h6>Aun no estas registrado?</h6>
+        <a href="registro" class="btn btn-secondary btn-lg btn-block">Registrarse</a>
+
+
         <a class="volver" href="home">Volver</a>
 
 </div>

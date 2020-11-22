@@ -4,37 +4,24 @@ class authHelper {
 
 	static private function start() {
 		if (session_status() != PHP_SESSION_ACTIVE)
-			session_start();
+            session_start();
 	}
 
 	static public function checkLogged() {
-		self::start(); 
-
-		if (!isset($_SESSION['IS_LOGGED'])) {
-			header('Location: ' . BASE_URL . 'login');
-			die();
-		}
-	}
-
-	static public function isLogged() {
-		self::start(); 
-		return (isset($_SESSION['IS_LOGGED']));
-	}
-
-	static public function getUserLogged() {
 		self::start();
-		if (isset($_SESSION['USERNAME'])) {
-			return $_SESSION['USERNAME'];
-		}
-		
-		return false;
+        if(!isset($_SESSION['USER_NAME'])){
+            return false;
+        }else {  
+             return true;
+         }
 	}
 
-	static public function login($user) {
+	static public function login($usuario) {
 		self::start();
-		$_SESSION['IS_LOGGED'] = true;
-		$_SESSION['ID_USER'] = $user->id_usuario;
-		$_SESSION['USERNAME'] = $user->username;
+		$_SESSION['ID_USER'] = $usuario->id_usuario;
+		$_SESSION['USER_NAME'] = $usuario->usuario;
+        $_SESSION['EMAIL_USER'] = $usuario->email;
+        $_SESSION['ADMIN'] = $usuario->admin;
 	}
 
 	static public function logout() {

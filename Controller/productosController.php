@@ -22,16 +22,21 @@
     }
 
     function home(){
-		$this->view->showHome();
+        $loggedIn =  authHelper::checkLogged();
+        if($loggedIn){
+            $this->view->showHome();
+        } else {
+            $this->view->showHome();
+        }
     }
 
-    function homeAdmin() {
-        authHelper::checkLogged();
-        $this->view->showHomeAdmin();
-	}
-
     function contacto(){
-        $this->view->showContacto();
+        $loggedIn =  authHelper::checkLogged();
+        if($loggedIn){
+            $this->view->showContacto();
+        } else {
+            $this->view->showContacto();
+        }
     }
 
     function getProductos(){

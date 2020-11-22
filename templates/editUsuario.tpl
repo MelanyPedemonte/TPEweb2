@@ -1,7 +1,8 @@
-{include file="headerUsuario.tpl"}
+{include file="header.tpl"}
 <h1>Editar usuario</h1>
-<h2>Usuario: {$usuario->usuario}</h2>
-<h2>email: {$usuario->email}</h2>
+<h6>Usuario: {$usuario->usuario}</h6>
+<h6>email: {$usuario->email}</h6>
+<h6>Desea otorgar permisos de administrador a este usuario?</h6>
 <form action="editUsuario/{$usuario->id_usuario}" method="post">
     <p>Seleccione: 
         <select name="selectAdmin">
@@ -13,12 +14,12 @@
                 {/if}  
             </option>   
             <option value="
-                {if $user->admin == 1}
+                {if $usuario->admin == 1}
                     0
                 {else}
                     1
                 {/if}">
-                {if $user->admin == 1}
+                {if $usuario->admin == 1}
                     No
                 {else}
                     Si
@@ -26,6 +27,9 @@
             </option>       
         </select>
     </p>
-    <button class="btn" type="submit">Editar</button>
+    <button type="submit" class="btn btn-secondary btn-lg btn-block">Editar</button>     
 </form>
+
+<a href="javascript: history.go(-1)">Volver</a
+
 {include file="footer.tpl"}

@@ -15,59 +15,41 @@ class usuariosController{
         $this->model = new usuariosModel();
     }
 
-    function contactoUsuario(){
-        $this->view->showContactoUsuario();
-    }
-
-    function login(){
-        $this->view->showLogin();
-    }
-
-    function logout(){
-        authHelper::logout();
-        header("Location:".BASE_URL."home");
-    }
-
-    function verifyUser(){
-        $user = $_POST["input_user"];
-        $pass = $_POST["input_pass"];
-
-        if(isset($user)){
-            $userFromDB = $this->model->getUsuario($user);
-            if(isset($userFromDB) && $userFromDB){
-                // Existe el usuario
-                if (password_verify($pass, $userFromDB->pass)){
-                    authHelper::login($user);
-                    header("Location:".BASE_URL."homeUsuario");
-                }else{
-                    $this->view->showLogin("Contraseña incorrecta");
-
-                }
-            }else{
-                // No existe el user en la DB
-                header("Location:".BASE_URL."home");
-            }
+    function showUsuarios(){
+        $usuarios = $this->model->getUsuarios();
+        $logueado =  authHelper::checkLogged();
+        $admin = authHelper::esAdmin();
+        if($logueado && $admin){
+            $this->view->showUsuarios($usuarios);
+        } else {
+            header("Location:  " .  BASE_URL . "home"); 
         }
     }
 
-    function newUsuario(){
-        $user= $_POST['user'];
-        $mail= $_POST['email'];
-        $password= $_POST['pass'];
+    function deleteUsuario($params = null){
+        authHelper::checkLogged();
+        $id = $params[':ID'];
+        $this->model->deleteUsuario($id);
+        header("Location:  " .  BASE_URL . "usuariosAdmin"); 
+    }
 
-        $pass = password_hash($password, PASSWORD_DEFAULT);
-
-        if(!empty($mail) && !empty($password)&& !empty($user)){
-            
-            $this->model->addUsuario($user, $mail, $pass);
-            header('Location: ' . BASE_URL); 
+    function showEditUsuario($params = null){
+        authHelper::checkLogged();
+        $id = $params[':ID'];
+        $usuario = $this->model->getUsuarioID($id);
+        $this->view->showEditUsuario($usuario);
+    }
+    
+    function editUsuario($params = null){
+        authHelper::checkLogged();
+        $id = $params[':ID'];
+        if ((isset($_POST['selectAdmin']))) {
+            $admin = $_POST['selectAdmin'];
+            $this->model->editUsuario($admin, $id);
         }
-        else {
-            $this->view->showLogin("ERROR, no se creo el usuario");
-        }
+        header("Location: ".BASE_URL. "usuariosAdmin"); 
     }
 
 }
-
 
 ?>

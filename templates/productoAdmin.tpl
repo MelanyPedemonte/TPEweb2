@@ -1,4 +1,4 @@
-{include file="headerAdmin.tpl"}
+{include file="header.tpl"}
 
                         <div class="card" style="width: 18rem;">
                               
@@ -14,6 +14,5 @@
                               </div>
                         </div>
         
-    {include file="vue/comentario.tpl"}
     <a href="javascript: history.go(-1)">Volver</a
 {include file= "footer.tpl"}
