@@ -46,11 +46,12 @@
     }
 
     function getProducto($params = null){
+        $usuario = authHelper::checkLogged();
         $id = $params[':ID'];
         $producto = $this->model->getProducto($id);
         $categoria_id= $producto->id_categoria;
         $categoria= $this->cmodel->getCategoria($categoria_id);
-        $this->view->showProducto($producto, $categoria);
+        $this->view->showProducto($producto, $categoria, $usuario);
     }
 
     function addProducto(){

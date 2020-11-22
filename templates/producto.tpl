@@ -12,6 +12,13 @@
                               </div>
                         </div>
                         
+                        {if isset($usuario)}
+                            {include file="comment.tpl"}
+                        {/if}
+
+                        <div>
+                           {include file="vue/comentarios.vue"}
+                        </div>
         
     
     <a href="javascript: history.go(-1)">Volver</a>

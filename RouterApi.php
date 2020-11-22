@@ -7,8 +7,8 @@
 
     // armo la tabla de ruteo de la API REST
     $router->addRoute("producto/:ID/comentarios", "GET", "apiComentariosController", "getComentarios");
-    $router->addRoute("/comentarios", "POST", "apiComentariosController", "addComentario");
-    $router->addRoute("/comentarios/:ID", "DELETE", "apiComentariosController", "deleteComentario");
+    $router->addRoute("/addComentarios", "POST", "apiComentariosController", "addComentario");
+    $router->addRoute("/deleteComentarios/:ID", "DELETE", "apiComentariosController", "deleteComentario");
     
     //run
     $router->route($_GET['resource'], $_SERVER['REQUEST_METHOD']); 

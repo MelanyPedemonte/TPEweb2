@@ -2,7 +2,7 @@
 <h1>Editar usuario</h1>
 <h6>Usuario: {$usuario->usuario}</h6>
 <h6>email: {$usuario->email}</h6>
-<h6>Desea otorgar permisos de administrador a este usuario?</h6>
+<h6>Desea otorgar/quitar permisos de administrador a este usuario?</h6>
 <form action="editUsuario/{$usuario->id_usuario}" method="post">
     <p>Seleccione: 
         <select name="selectAdmin">
