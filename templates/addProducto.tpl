@@ -1,5 +1,5 @@
 <h3 class="textAdd">Agregar Producto</h3>
-               <form id="formview" action="addProducto" method="post">
+               <form id="formview" action="addProducto" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                          <label> Nombre: </label>
                          <input value=" " name="nombre" type="text" class="form-control" placeholder="Nombre">
@@ -11,6 +11,9 @@
                     <div class="form-group">
                          <label> Precio: </label>
                          <input value=" " name="precio" type="text" class="form-control" placeholder="Precio">
+                    </div>
+                     <div class="form-group">
+                        <input class="input" type="file" name="input_file" id="imageToUpload"  required>
                     </div>
                     <div class="form-group">
                          <label for="inputState">Seleccione Categoria:</label>

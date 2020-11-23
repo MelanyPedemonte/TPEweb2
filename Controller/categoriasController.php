@@ -70,8 +70,8 @@ class categoriasController{
     
     function categoriasAdmin(){
         authHelper::checkLogged();
-        $categoria = $this->model->GetCategorias();
-        $producto = $this->pmodel->GetProductos();
+        $categoria = $this->model->getCategorias();
+        $producto = $this->pmodel->getProductos();
         $this->view->ShowCategoriasAdmin($producto, $categoria);
     }
     

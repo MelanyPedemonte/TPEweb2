@@ -9,7 +9,7 @@
                <tr>
                     <div class="card-group">
                         <div class="card" style="width: 18rem;">
-                              
+                              <img class="img" src="{$producto->imagen}" style="max-width:300px !important; max-height:300px !important;">
                               <div class="card-body">
                                   <h5 class="card-title"><a href="productoAdmin/{$producto->id_producto}"> {$producto->nombre_producto}</a></h5>
                                   <h6 class="card-subtitle mb-2 text-muted">{$producto->descripcion_producto}</h6>

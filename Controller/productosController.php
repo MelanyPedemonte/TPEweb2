@@ -57,11 +57,14 @@
     function addProducto(){
         authHelper::checkLogged();
         $categorias= $this->cmodel->getCategorias();
-        if ((isset($_POST['nombre']) && isset($_POST['descripcion'])) && (isset($_POST['precio']) && isset($_POST['categoria']))) {
+        if ((isset($_POST['nombre']) && isset($_POST['descripcion'])) && (isset($_POST['precio']) && isset($_POST['file']) && isset($_POST['categoria']))  && ($_FILES['input_file']['type'] == "image/jpg" || $_FILES['input_file']['type'] == "image/jpeg" || $_FILES['input_file']['type'] == "image/png")) {
             $nombre = $_POST['nombre'];
             $descripcion = $_POST['descripcion'];
             $precio = $_POST['precio'];
             $categoria = $_POST['categoria'];
+            $fileTemp = $_FILES['file']['tmp_name'];
+            $this->model->addProducto($nombre,$descripcion,$precio, $fileTemp,$categoria);
+        } else{
             $this->model->addProducto($nombre,$descripcion,$precio,$categoria);
         }
         header("Location: ".BASE_URL. "productosAdmin" );
@@ -85,12 +88,22 @@
     function editProducto($params = null){
         authHelper::checkLogged();
         $id = $params[':ID'];
-        if ((isset($_POST['nombre']) && isset($_POST['descripcion'])) && (isset($_POST['precio']) && isset($_POST['categoria']))) {
+        if ((isset($_POST['nombre']) && isset($_POST['descripcion'])) && (isset($_POST['precio'])) && (isset($_POST['categoria'])) && ($_FILES['edit_file']['type'] == "image/jpg" || $_FILES['edit_file']['type'] == "image/jpeg" || $_FILES['edit_file']['type'] == "image/png")) {
             $nombre = $_POST['nombre'];
             $descripcion = $_POST['descripcion'];
             $precio = $_POST['precio'];
             $categoria = $_POST['categoria'];
-            $this->model->editProducto($id,$nombre,$descripcion,$precio,$categoria);
+            $fileTemp = $_FILES['edit_file']['tmp_name'];
+            $this->model->editProductoImg($id,$nombre,$descripcion,$precio, $fileTemp, $categoria);
+        } else{
+            if ((isset($_POST['nombre']) && isset($_POST['descripcion'])) && (isset($_POST['precio'])) && (isset($_POST['categoria']))){
+                $nombre = $_POST['nombre'];
+                $descripcion = $_POST['descripcion'];
+                $precio = $_POST['precio'];
+                $categoria = $_POST['categoria'];
+                $this->model->editProducto($id,$nombre,$descripcion,$precio, $categoria);
+            }
+
         }
         header("Location: ".BASE_URL. "productosAdmin");
     }
@@ -109,6 +122,18 @@
         $categoria_id= $producto->id_categoria;
         $categoria= $this->cmodel->getCategoria($categoria_id);
         $this->view->showProductoAdmin($producto, $categoria);
+    }
+
+    function deleteImg($params = null){
+        authHelper::checkLogged();
+        $id = $params[':ID'];
+        $filepath = $this->model->getFilepath($id);
+        $this->model->deleteImg($id);
+        $enUso = $this->model->imagenEnUso($filepath->imagen);
+            if(!$imagenEnUso){
+                unlink($filepath->imagen);
+            }
+        header("Location: ".BASE_URL. "editP/$id");
     }
 
 

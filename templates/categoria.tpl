@@ -11,7 +11,7 @@
                <tr> 
                     
                         <div class="card" style="width: 18rem;">
-                              
+                              <img class="img" src="{$producto.imagen}" style="max-width:300px !important; max-height:300px !important;">
                               <div class="card-body">
                                   <h5 class="card-title"><a href="producto/{$producto.id_producto}"> {$producto.nombre_producto}</a></h5>
                                   <p class="card-text">${$producto.precio}</p>

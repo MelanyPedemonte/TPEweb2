@@ -22,6 +22,8 @@
     $route->addRoute("editarProducto/:ID","POST","productosController","editProducto");
     $route->addRoute("productosAdmin","GET","productosController","productosAdmin");
     $route->addRoute("productoAdmin/:ID","GET","productosController","productoAdmin");
+    $route->addRoute("deleteImg/:ID","GET","productosController","deleteImg");
+
 
     //categorias
     $route->addRoute("categorias","GET","categoriasController","getCategorias");

@@ -1,7 +1,7 @@
 {include file="header.tpl"}
 <div>
 <h3>Editar Producto</h3>
-               <form id="formview" action="editarProducto/{$producto->id_producto}" method="post">
+               <form id="formview" action="editarProducto/{$producto->id_producto}" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                          <label> Nombre: </label>
                          <input name="nombre" type="text" class="form-control" placeholder="Nombre" value="{$producto->nombre_producto}" required>
@@ -13,6 +13,11 @@
                     <div class="form-group">
                          <label> Precio: </label>
                          <input name="precio" type="text" class="form-control" placeholder="Precio" value="{$producto->precio}" required>
+                    </div>
+                    <div class="form-group">
+                         <img class="img edit_img" src="{$producto->imagen}">
+                         <input class="btn_file" type="file" name="edit_file" id="imageToUpload" />
+                        <button type="button" class="btn btn-secondary"><a href="deleteImg/{$producto->id_producto}">Eliminar Imagen de producto</a></button>
                     </div>
                     <div class="form-group">
                          <label for="inputState">Seleccione Categoria:</label>
