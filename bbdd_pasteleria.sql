@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 23, 2020 at 12:48 AM
+-- Generation Time: Nov 23, 2020 at 09:17 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -84,10 +84,11 @@ CREATE TABLE `producto` (
 --
 
 INSERT INTO `producto` (`id_producto`, `nombre_producto`, `descripcion_producto`, `precio`, `imagen`, `id_categoria`) VALUES
-(1, 'Brownie', 'Brownie de 20x20, con o sin nueces.', 350, '', 1),
-(2, 'Budin', 'Budin de vainilla con o sin chispas', 80, '', 1),
-(3, 'Sandwich de miga', 'Docena de sandwich de miga', 320, '', 2),
-(5, 'Box -Dia de la Madre', 'Este box incluye: \r\n-1 taza de vidrio. \r\n-2 tartas individuales a elección. (pastafrola, tarta cabsha o de coco)\r\n-2 alfajores de maicena. \r\n-3 galletitas.\r\n-2 budines individuales.\r\n-1 bolsita de biscochitos.\r\n-1 te(clásico o verde). ', 500, '', 5);
+(1, 'Brownie', 'Brownie de 20x20, con o sin nueces.', 350, 'img/brownie.jpg', 1),
+(2, 'Budin', 'Budin de vainilla con o sin chispas', 80, 'img/budin.jpg', 1),
+(3, 'Sandwich de miga', 'Docena de sandwich de miga', 320, 'img/sandwich-miga.jpg', 2),
+(5, 'Box -Dia de la Madre', 'Este box incluye: -1 taza de vidrio. -2 tartas individuales a elección. (pastafrola, tarta cabsha o de coco)-2 alfajores de maicena. -3 galletitas.-2 budines individuales.-1 bolsita de biscochitos.-1 te(clásico o verde). ', 500, 'img/box-dia-de-la-madre.jpg', 5),
+(8, ' Pastafrola', ' Pastafrola mediana de dulce de membrillo', 170, 'img/pastafrola.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -163,7 +164,7 @@ ALTER TABLE `comentario`
 -- AUTO_INCREMENT for table `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `usuario`
