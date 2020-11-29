@@ -1,14 +1,13 @@
 <?php
-require_once " ./api/apiView.php";
+require_once "APIView.php";
 
-abstract class ApiController {
+abstract class apiController {
     protected $model;
     protected $view;
     private $data; 
 
     public function __construct() {
-        $this->model = new comentariosModel();
-        $this->view = new apiView();
+        $this->view = new APIView();
         $this->data = file_get_contents("php://input");
     }
 

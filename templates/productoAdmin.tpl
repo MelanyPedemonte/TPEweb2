@@ -13,6 +13,5 @@
                                    <small class="text-muted">{$categoria->nombre_categoria}</small>
                               </div>
                         </div>
-        
     <a href="javascript: history.go(-1)">Volver</a
 {include file= "footer.tpl"}

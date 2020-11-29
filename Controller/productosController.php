@@ -64,10 +64,9 @@
             $categoria = $_POST['categoria'];
             $fileTemp = $_FILES['file']['tmp_name'];
             $this->model->addProducto($nombre,$descripcion,$precio, $fileTemp,$categoria);
-        } else{
+        } /*else{
             $this->model->addProducto($nombre,$descripcion,$precio,$categoria);
-        }
-        header("Location: ".BASE_URL. "productosAdmin" );
+        }*/
     }
 
     function deleteProducto($params = null){
@@ -130,7 +129,7 @@
         $filepath = $this->model->getFilepath($id);
         $this->model->deleteImg($id);
         $enUso = $this->model->imagenEnUso($filepath->imagen);
-            if(!$imagenEnUso){
+            if(!$enUso){
                 unlink($filepath->imagen);
             }
         header("Location: ".BASE_URL. "editP/$id");

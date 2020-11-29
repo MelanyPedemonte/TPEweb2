@@ -1,16 +1,35 @@
 <?php
-require_once " ./api/apiView.php";
-require_once " ./api/apiController.php";
-require_once "./model/comentariosModel.php";
 
-class apiComentariosController extends ApiController{
+require_once "apiController.php";
+require_once "./Model/comentariosModel.php";
 
-    public function  getComentarios($params = null) {
-        $id = $params[':ID'];
-        
-        $comentarios = $this->model->getComentarios($id);
-        $this->view->response($comentarios, 200);
+class apiComentariosController extends apiController{
+
+    public function __construct() {
+        parent::__construct();
+        $this->model = new comentariosModel();
     }
+
+    public function getComentarios($params = null) {
+        $id = $params[':ID'];
+        $comentarios = $this->model->getComentariosPorProducto($id);
+        if (!empty($comentarios)){
+            $this->view->response($comentarios, 200);
+        }
+    }
+
+    public function addComentario($params = null){
+        $comentario = $this->getData(); 
+        
+        $comentarioId = $this->model->addComentario($comentario->id_producto, $comentario->id_usuario, $comentario->valoracion, $comentario->comentario);
+
+        if (!empty($comentarioId)){
+            $this->view->response($this->model->getComentario($comentarioId), 201);
+        }else{
+            $this->view->response("Error al insertar comentario", 404);
+        }
+    }
+
 
     public function deleteComentario($params = null){
         $id = $params[':ID'];
@@ -23,16 +42,5 @@ class apiComentariosController extends ApiController{
         }
     }
 
-    public function addComentario($params = null){
-        $comment = $this->getData(); // la obtengo del body
-        
-        // inserta la comment
-        $commentId = $this->model->addComentario($comment->id_producto, $comment->id_usuario, $comment->valoracion, $comment->comentario);
-
-        if (!empty($commentId))
-            $this->view->response($this->model->getComentario($commentId), 200);
-        else
-            $this->view->response("Error al insertar comentario", 500);;
-    }
-
+    
 }

@@ -11,18 +11,7 @@
                                    <small class="text-muted">{$categoria->nombre_categoria}</small>
                               </div>
                         </div>
-                        
-                        {if isset($usuario)}
-                            {include file="comment.tpl"}
-                        {/if}
 
-                        <div>
-                           {include file="vue/comentarios.vue"}
-                        </div>
-        
-    
+        {include file= "vue/comentario.tpl"}
     <a href="javascript: history.go(-1)">Volver</a>
-
-
-<script src="js/main.js"></script>
 {include file= "footer.tpl"}
