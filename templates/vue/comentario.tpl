@@ -4,6 +4,7 @@
     <ul>
        <li v-for="comentario in comentarios">
            <span>{{ comentario.comentario }} </span>
+           <button class="btn_deleteComentario" @click="deleteComentario(comentario.id_comentario, comentarios)">Borrar</button>
        </li> 
     </ul>
     </section>

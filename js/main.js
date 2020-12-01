@@ -5,7 +5,15 @@ let app = new Vue({
     data: {
         comentarios: [],
     },
-
+    methods : {
+        deleteComentario(id , comentarios){
+            fetch('api/comentarios/' + id, {
+                "method": "DELETE",
+            })
+            .catch(error => console.log(error));
+            this.$delete(comentarios)
+        },
+    }
 })
 
 function getComentarios(producto) {
@@ -39,3 +47,4 @@ function addComentario(e) {
      })
      .catch(error => console.log(error));
 }
+
