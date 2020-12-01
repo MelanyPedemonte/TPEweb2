@@ -5,8 +5,8 @@
 
     $router = new Router();
     
-    $router->addRoute("producto/:ID/comentarios", "GET", "apiComentariosController", "getComentarios");
-    $router->addRoute("comentario", "POST", "apiComentariosController", "addComentario");
-    $router->addRoute("comentario", "DELETE", "apiComentariosController", "deleteComentario");
+    $router->addRoute("comentarios/:ID", "GET", "apiComentariosController", "getComentarios");
+    $router->addRoute("comentarios", "POST", "apiComentariosController", "addComentario");
+    $router->addRoute("comentarios/:ID", "DELETE", "apiComentariosController", "deleteComentario");
     
     $router->route($_GET['resource'], $_SERVER['REQUEST_METHOD']); 
