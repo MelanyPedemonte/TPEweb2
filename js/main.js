@@ -4,7 +4,8 @@ let app = new Vue({
     el: '#vue-comentarios',
     data: {
         comentarios: [],
-    }
+    },
+
 })
 
 function getComentarios(producto) {
@@ -35,20 +36,6 @@ function addComentario(e) {
      })
      .then(response => {
         getComentarios(data.id_producto);
-     })
-     .catch(error => console.log(error));
-}
-
-function deleteComentario(e) {
-    e.preventDefault();
-    let id = document.querySelector("#btn-borrar").value;
-    fetch('api/comments/id', {
-        method: 'DELETE',
-        headers: {'Content-Type': 'application/json'},       
-        body: JSON.stringify(data) 
-     })
-     .then(response => {
-        getComments(data.producto);
      })
      .catch(error => console.log(error));
 }

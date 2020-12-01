@@ -4,7 +4,6 @@
     <ul>
        <li v-for="comentario in comentarios">
            <span>{{ comentario.comentario }} </span>
-           <!-- <button id="btn-borrar" value="{{ comment.id }}">Borrar</button> -->
        </li> 
     </ul>
     </section>

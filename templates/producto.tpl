@@ -13,9 +13,19 @@
                         </div>
                 </div>
                         {include file="vue/comentario.tpl"}
-                      <form id="form-comentarios" resource="comentarios" method="post">
-                         <input type="hidden" name="producto" id="idProducto" value="{$producto->id_producto}">
-                      </form>
+                      {if isset($smarty.session.USER_NAME)}
+                          <form id="form-comentarios" resource="comentario" method="post">
+                            <input type="text" name="comentario" placeholder="Comentario">
+                            <input type="number" name="valoracion" placeholder="Valoracion">
+                            <input type="hidden" name="producto" id="idProducto" value="{$producto->id_producto}">
+                            <input type="hidden" name="user" value="{$smarty.session.ID_USER}">
+                            <input type="submit" value="Comentar">
+                          </form>
+                      {else}
+                          <form id="form-comentarios" resource="comments" method="post">
+                           <input type="hidden" name="producto" id="idProducto" value="{$producto->id_producto}">
+                          </form>
+                      {/if}
 
 
     <a href="javascript: history.go(-1)">Volver</a>
