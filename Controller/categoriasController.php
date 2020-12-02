@@ -34,7 +34,7 @@ class categoriasController{
     
     function addCategoria(){
         authHelper::checkLogged();
-        if ((isset($_POST['nombre']) && isset($_POST['descripcion']))) {
+        if (isset($_POST['nombre']) && isset($_POST['descripcion'])) {
             $nombre = $_POST['nombre'];
             $descripcion = $_POST['descripcion'];
             $this->model->addCategoria($_POST['nombre'],$_POST['descripcion']);

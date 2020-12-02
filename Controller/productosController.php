@@ -62,12 +62,10 @@
         $precio = $_POST['precio'];
         $categoria = $_POST['categoria'];
         $fileTemp = $_FILES['input_file']['tmp_name'];
-        if ((!empty($nombre) && !empty($descripcion)) && (!empty($precio) && !empty($fileTemp) && !empty($categoria))  && ($_FILES['input_file']['type'] == "image/jpg" || $_FILES['input_file']['type'] == "image/jpeg" || $_FILES['input_file']['type'] == "image/png")) {
+        if (isset($_POST['nombre']) && isset($_POST['descripcion']) && isset($_POST['precio']) && isset($_POST['file']) && isset($_POST['categoria'])  && ($_FILES['input_file']['type'] == "image/jpg" || $_FILES['input_file']['type'] == "image/jpeg" || $_FILES['input_file']['type'] == "image/png"))  {
             $this->model->addProducto($nombre,$descripcion,$precio, $fileTemp,$categoria);
         }else{
-            if ((!empty($nombre) && !empty($descripcion)) && (!empty($precio) && !empty($file) && !empty($categoria))){
-                $this->model->addProducto($nombre,$descripcion,$precio,$categoria);
-            }
+            $this->model->addProducto($nombre,$descripcion,$precio,null,$categoria);
         }
         header("Location: ".BASE_URL. "productosAdmin" );
     }
