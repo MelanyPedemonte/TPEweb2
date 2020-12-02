@@ -2,15 +2,15 @@
                <form id="formview" action="addProducto" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                          <label> Nombre: </label>
-                         <input  type="text"   value=" " name="nombre"class="form-control" placeholder="Nombre" required>
+                         <input  type="text"  name="nombre"class="form-control" placeholder="Nombre" required>
                     </div>
                     <div class="form-group">
                          <label> Descripcion: </label>
-                         <input  type="text"   value=" " name="descripcion" class="form-control" placeholder="Descripcion" required>
+                         <input  type="text"  name="descripcion" class="form-control" placeholder="Descripcion" required>
                     </div>
                     <div class="form-group">
                          <label> Precio: </label>
-                         <input  type="text" value=" " name="precio" class="form-control" placeholder="Precio" required>
+                         <input  type="text" name="precio" class="form-control" placeholder="Precio" required>
                     </div>
                      <div class="form-group">
                         <input type="file" name="input_file" id="imageToUpload">

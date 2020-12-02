@@ -1,18 +1,17 @@
 {include file="header.tpl"}
-<section class="contenedor_table">   
+<div class="card-group">     
      <table class="table table-bordered">
           <thead>
-              <h1 class="titProductos">PRODUCTOS</h1>
+          
           </thead>
           <tbody>
                {foreach from=$productos item=producto}
                <tr>
-                    <div class="card-group">
+                   <div class="card-group">
                         <div class="card" style="width: 18rem;">
                               <img class="img" src="{$producto->imagen}" style="max-width:300px !important; max-height:300px !important;">
                               <div class="card-body">
-                                  <h5 class="card-title"><a href="productoAdmin/{$producto->id_producto}"> {$producto->nombre_producto}</a></h5>
-                                  <h6 class="card-subtitle mb-2 text-muted">{$producto->descripcion_producto}</h6>
+                                  <h5 class="card-title"><a href="producto/{$producto->id_producto}"> {$producto->nombre_producto}</a></h5>
                                   <p class="card-text">${$producto->precio}</p>
                               </div>
                               <div class="card-footer">
@@ -20,12 +19,11 @@
                               </div>
                          </div>
                     </div>
-               </tr>      
+               </tr>    
                {/foreach}
           </tbody>
      </table>   
-</div>
-</section>  
+</div>          
 <!--FORMULARIO PARA INSERTAR PRODUCTO-->
 {include file="addProducto.tpl"}
 

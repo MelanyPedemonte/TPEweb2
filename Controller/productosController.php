@@ -62,8 +62,8 @@
         $precio = $_POST['precio'];
         $categoria = $_POST['categoria'];
         $fileTemp = $_FILES['input_file']['tmp_name'];
-        if (isset($_POST['nombre']) && isset($_POST['descripcion']) && isset($_POST['precio']) && isset($_POST['file']) && isset($_POST['categoria'])  && ($_FILES['input_file']['type'] == "image/jpg" || $_FILES['input_file']['type'] == "image/jpeg" || $_FILES['input_file']['type'] == "image/png"))  {
-            $this->model->addProducto($nombre,$descripcion,$precio, $fileTemp,$categoria);
+        if(isset($_POST['nombre']) && isset($_POST['descripcion']) && isset($_POST['precio']) && isset($_POST['file']) && empty($_POST['categoria']) && ($_FILES['input_file']['type'] == "image/jpg" || $_FILES['input_file']['type'] == "image/jpeg" || $_FILES['input_file']['type'] == "image/png"))  {
+            $this->model->addProducto($nombre,$descripcion,$precio,$fileTemp,$categoria);
         }else{
             $this->model->addProducto($nombre,$descripcion,$precio,null,$categoria);
         }
@@ -136,6 +136,15 @@
         header("Location: ".BASE_URL. "editP/$id");
     }
 
+    function getProductosPaginacion(){
 
-
+        $page=1;
+        $cant_pag = 2;
+        if(isset($_GET['page']) && is_numeric($_GET['page'])){
+            $page = $_GET['page'];
+        }
+        $categorias= $this->cmodel->getCategorias();
+        $productos = $this->model->getProductosPaginacion($page*$cant_pag,$cant_pag);
+        $this->view->mostrar($productos, $categorias);
+    }
 }

@@ -77,7 +77,13 @@ class productosModel{
         return $imagenes;
     }
 
-
+    function getProductosPaginacion($primera, $cantidad){
+        $sentencia = $this->db->prepare("SELECT * FROM producto LIMIT :primera, :cantidad");
+        $sentencia->bindParam(':primera', $primera, PDO::PARAM_INT);
+        $sentencia->bindParam(':cantidad', $cantidad, PDO::PARAM_INT);
+        $sentencia->execute();
+        return  $sentencia->fetchAll(PDO::FETCH_OBJ);
+    }
 }
 
 ?>

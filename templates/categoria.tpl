@@ -1,15 +1,16 @@
 {include file="header.tpl"}
+<h5 class="titCategoria">{$categoria->nombre_categoria}</h5>
+<div class="card-group">
 
-      
     <table class="table table-bordered">
         <thead>
-            <h5 class="titCategoria">{$categoria->nombre_categoria}</h5>
+            
         </thead>
         <tbody>
             {foreach from=$productos item=producto}
             
                <tr> 
-                    
+                    <div class="card-group">
                         <div class="card" style="width: 18rem;">
                               <img class="img" src="{$producto.imagen}" style="max-width:300px !important; max-height:300px !important;">
                               <div class="card-body">
@@ -20,10 +21,8 @@
                                    <small class="text-muted"></small>
                               </div>
                         </div>
-                 
-                  
+                    </div>
                </tr>   
-                 
             {/foreach}
         </tbody>
     </table>  

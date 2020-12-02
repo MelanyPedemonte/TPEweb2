@@ -12,7 +12,8 @@
                               </div>
                         </div>
                 </div>
-                        {include file="vue/comentario.tpl"}
+                
+                    {include file="vue/comentario.tpl"}
                       {if isset($smarty.session.USER_NAME)}
                           <form id="form-comentarios" resource="comentario" method="post">
                             <input type="text" name="comentario" placeholder="Comentario">
@@ -27,7 +28,7 @@
                           </form>
                       {/if}
 
-
+                    
     <a href="javascript: history.go(-1)">Volver</a>
 
 <script src="js/main.js"></script>
