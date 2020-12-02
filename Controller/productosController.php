@@ -57,16 +57,19 @@
     function addProducto(){
         authHelper::checkLogged();
         $categorias= $this->cmodel->getCategorias();
-        if ((isset($_POST['nombre']) && isset($_POST['descripcion'])) && (isset($_POST['precio']) && isset($_POST['file']) && isset($_POST['categoria']))  && ($_FILES['input_file']['type'] == "image/jpg" || $_FILES['input_file']['type'] == "image/jpeg" || $_FILES['input_file']['type'] == "image/png")) {
-            $nombre = $_POST['nombre'];
-            $descripcion = $_POST['descripcion'];
-            $precio = $_POST['precio'];
-            $categoria = $_POST['categoria'];
-            $fileTemp = $_FILES['file']['tmp_name'];
+        $nombre = $_POST['nombre'];
+        $descripcion = $_POST['descripcion'];
+        $precio = $_POST['precio'];
+        $categoria = $_POST['categoria'];
+        $fileTemp = $_FILES['input_file']['tmp_name'];
+        if ((!empty($nombre) && !empty($descripcion)) && (!empty($precio) && !empty($fileTemp) && !empty($categoria))  && ($_FILES['input_file']['type'] == "image/jpg" || $_FILES['input_file']['type'] == "image/jpeg" || $_FILES['input_file']['type'] == "image/png")) {
             $this->model->addProducto($nombre,$descripcion,$precio, $fileTemp,$categoria);
-        } /*else{
-            $this->model->addProducto($nombre,$descripcion,$precio,$categoria);
-        }*/
+        }else{
+            if ((!empty($nombre) && !empty($descripcion)) && (!empty($precio) && !empty($file) && !empty($categoria))){
+                $this->model->addProducto($nombre,$descripcion,$precio,$categoria);
+            }
+        }
+        header("Location: ".BASE_URL. "productosAdmin" );
     }
 
     function deleteProducto($params = null){
