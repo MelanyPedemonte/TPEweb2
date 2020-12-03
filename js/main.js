@@ -1,5 +1,6 @@
 "use strict"
 
+
 let app = new Vue({
     el: '#vue-comentarios',
     data: {
