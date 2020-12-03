@@ -15,12 +15,19 @@
                 
                     {include file="vue/comentario.tpl"}
                       {if isset($smarty.session.USER_NAME)}
+                          <h3 class="textAdd">Agregar Comentario</h3>
                           <form id="form-comentarios" resource="comentario" method="post">
-                            <input type="text" name="comentario" placeholder="Comentario">
-                            <input type="number" name="valoracion" placeholder="Valoracion">
+                            <div class="form-group">
+                                <label> Comentario: </label>
+                                <input class="form-control" type="text" name="comentario" placeholder="Comentario" required>
+                            </div>
+                            <div class="form-group">
+                                <label> Valoracion: </label>
+                                <input class="form-control" type="number" min="0" max="5" name="valoracion" placeholder="Valoracion" required>
+                            </div>
                             <input type="hidden" name="producto" id="idProducto" value="{$producto->id_producto}">
                             <input type="hidden" name="user" value="{$smarty.session.ID_USER}">
-                            <input type="submit" value="Comentar">
+                            <input type="submit" class="btn btn-secondary btn-lg btn-block" value="Comentar">
                           </form>
                       {else}
                           <form id="form-comentarios" resource="comments" method="post">

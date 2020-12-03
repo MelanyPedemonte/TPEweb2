@@ -21,11 +21,13 @@ class categoriasController{
     }
     
     function getCategorias(){
+        authHelper::checkLogged();
         $categorias = $this->model->getCategorias();
         $this->view->showCategorias($categorias);
     }
     
     function getCategoria($params = null){
+        authHelper::checkLogged();
         $id = $params[':ID'];  
         $categoria = $this->model->getCategoria($id);    
         $productos =$this->pmodel->productosCategoria($id);

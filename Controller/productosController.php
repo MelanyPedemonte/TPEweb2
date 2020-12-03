@@ -40,18 +40,19 @@
     }
 
     function getProductos(){
+        authHelper::checkLogged();
         $categorias= $this->cmodel->getCategorias();
         $productos = $this->model->getProductos();
         $this->view->mostrar($productos, $categorias);
     }
 
     function getProducto($params = null){
-        $usuario = authHelper::checkLogged();
+        authHelper::checkLogged();
         $id = $params[':ID'];
         $producto = $this->model->getProducto($id);
         $categoria_id= $producto->id_categoria;
         $categoria= $this->cmodel->getCategoria($categoria_id);
-        $this->view->showProducto($producto, $categoria, $usuario);
+        $this->view->showProducto($producto, $categoria);
     }
 
     function addProducto(){
@@ -134,17 +135,5 @@
                 unlink($filepath->imagen);
             }
         header("Location: ".BASE_URL. "editP/$id");
-    }
-
-    function getProductosPaginacion(){
-
-        $page=1;
-        $cant_pag = 2;
-        if(isset($_GET['page']) && is_numeric($_GET['page'])){
-            $page = $_GET['page'];
-        }
-        $categorias= $this->cmodel->getCategorias();
-        $productos = $this->model->getProductosPaginacion($page*$cant_pag,$cant_pag);
-        $this->view->mostrar($productos, $categorias);
     }
 }

@@ -19,7 +19,11 @@ body{
 }
 
 .footer {
+    position: relative;
     justify-content: center;
+    width: 100%;
+    bottom: 0;
+    font-size: 20px;
 }
 
 .bg-light{
@@ -83,6 +87,7 @@ h5.titCategoria{
 
 .textAdd{
   margin: 5px;
+  text-align: center;
 }
 
 .titProductos{
@@ -91,6 +96,7 @@ h5.titCategoria{
 
 h3{
   margin: 10px;
+  text-align: center;
 }
 
 h1{
@@ -99,4 +105,37 @@ h1{
 
 #tbl_comentarios{
   text-align: center;
+}
+
+.contContacto{
+  display: flex;
+}
+
+.datos{
+  width: 50%;
+  padding: 20px;
+  text-align: center;
+}
+
+.map{
+  padding: 10px;
+}
+
+.card-group{
+  justify-content: center;
+  padding: 10px;
+}
+
+#form-comentarios{
+  padding: 20px;
+}
+
+.container{
+  padding: 0;
+  margin: 0;
+  max-width: 100%;
+}
+
+.w-75{
+  width: 100% !important;
 }

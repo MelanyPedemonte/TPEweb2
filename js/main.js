@@ -10,11 +10,9 @@ let app = new Vue({
             fetch('api/comentarios/' + id, {
                 "method": "DELETE",
             })
-            .then(response => {
-                getComentarios(producto);
-             })
-            .catch(error => console.log(error));
-            this.$delete(comentarios)
+            .then(response => {getComentarios(producto)})
+            .catch(error => console.log(error))
+            this.$delete(comentarios);
         },
     }
 })

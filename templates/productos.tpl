@@ -23,14 +23,5 @@
                {/foreach}
           </tbody>
      </table>
-    <nav aria-label="Page navigation example">
-  <ul class="pagination">
-    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-    <li class="page-item"><a class="page-link" href="productos/page=1">1</a></li>
-    <li class="page-item"><a class="page-link" href="productos/page=2">2</a></li>
-    <li class="page-item"><a class="page-link" href="productos/page=3">3</a></li>
-    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-  </ul>
-</nav>
 </div>         
 {include file= "footer.tpl"}

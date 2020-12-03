@@ -2,7 +2,7 @@
 <section class="contenedor_table">
     <table class="table table-bordered">
         <thead>
-          <h1>USUARIOS</h1>
+         
         </thead>
         <tbody>
         {foreach from=$usuarios item=usuario}

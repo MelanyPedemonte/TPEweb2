@@ -10,11 +10,15 @@
             </thead>
             <tbody v-for="comentario in comentarios">
                 <tr>
+            {literal}
+                    
                 <td ><span>{{ comentario.comentario }} </span></td>
                 <td ><span>{{ comentario.valoracion }} </span></td>
                 <td ><span>
+
+            {/literal}
                     {if {$smarty.session.ADMIN} == 1}
-                  <button class="btn_deleteComentario" @click="deleteComentario(comentario.id_comentario, comentarios)">Borrar</button>
+                  <button class="btn btn-secondary" @click="deleteComentario(comentario.id_comentario, comentarios)">Borrar</button>
                {/if}</span>
                 </td>
                 </tr>

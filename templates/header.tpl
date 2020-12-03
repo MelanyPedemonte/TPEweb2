@@ -26,7 +26,7 @@
                </li>
              {if {$smarty.session.ADMIN} == 1}
                  <li class="nav-item dropdown">
-                   <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Categorias</a>
+                   <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Productos</a>
                      <div class="dropdown-menu">
                           <a class="dropdown-item" href="productosAdmin">Ver todos los productos</a>
                           <a class="dropdown-item" href="categoriasAdmin">Ver todas categorias</a>
@@ -35,10 +35,10 @@
                </li>   
              {else}
                 <li class="nav-item dropdown">
-                   <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Categorias</a>
+                   <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Productos</a>
                      <div class="dropdown-menu">
                           <a class="dropdown-item" href="productos">Ver todos los productos</a>
-                          <a class="dropdown-item" href="categorias">Ver todas categorias</a>
+                          <a class="dropdown-item" href="categorias">Ver por categorias</a>
                     </div>
                </li>
               {/if}
@@ -50,10 +50,10 @@
                 <span class="navbar-text">
                     <a class="nav-link" href="logout">Logout</a>
                 </span>
-             {else}
-                <span class="navbar-text">
-                    <a class="nav-link" href="login">Login</a>
-                </span>
+                {else}
+                   <span class="navbar-text">
+                       <a class="nav-link" href="login">Login</a>
+                   </span>
               {/if}
            </div>
        </nav>
