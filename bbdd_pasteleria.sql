@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 01, 2020 at 03:56 AM
+-- Generation Time: Dec 03, 2020 at 02:15 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -62,7 +62,9 @@ CREATE TABLE `comentario` (
 --
 
 INSERT INTO `comentario` (`id_comentario`, `id_producto`, `id_usuario`, `valoracion`, `comentario`) VALUES
-(1, 1, 1, 5, 'Comentario de prueba 1');
+(11, 1, 5, 4, 'HOLA usuario comun'),
+(17, 1, 5, 4, 'HOLA '),
+(28, 3, 5, 5, 'HOLA usuario comun');
 
 -- --------------------------------------------------------
 
@@ -75,7 +77,7 @@ CREATE TABLE `producto` (
   `nombre_producto` varchar(50) NOT NULL,
   `descripcion_producto` text NOT NULL,
   `precio` float NOT NULL,
-  `imagen` varchar(50) NOT NULL,
+  `imagen` varchar(50) DEFAULT NULL,
   `id_categoria` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -88,7 +90,11 @@ INSERT INTO `producto` (`id_producto`, `nombre_producto`, `descripcion_producto`
 (2, 'Budin', 'Budin de vainilla con o sin chispas', 80, 'img/budin.jpg', 1),
 (3, 'Sandwich de miga', 'Docena de sandwich de miga', 320, 'img/sandwich-miga.jpg', 2),
 (5, 'Box -Dia de la Madre', 'Este box incluye: -1 taza de vidrio. -2 tartas individuales a elección. (pastafrola, tarta cabsha o de coco)-2 alfajores de maicena. -3 galletitas.-2 budines individuales.-1 bolsita de biscochitos.-1 te(clásico o verde). ', 500, 'img/box-dia-de-la-madre.jpg', 5),
-(8, ' Pastafrola', ' Pastafrola mediana de dulce de membrillo', 170, 'img/pastafrola.jpg', 1);
+(8, ' Pastafrola', ' Pastafrola mediana de dulce de membrillo', 170, 'img/pastafrola.jpg', 1),
+(61, 'Alfajores', 'Alfajores con dulce de leche ', 180, 'img/alfajor.jpg', 1),
+(62, 'Chocotorta', 'Porción de postre choco torta', 180, 'img/chocotorta.jpg', 1),
+(63, 'Masas Finas', 'Masas finas con chocolate y granas', 150, 'img/galletita.jpg', 1),
+(64, 'Desayuno-Completo', '-1 chocolatada -1 bolsita de cereales -2 golosinas -1 bolsita de pepas(incluye 6 pepas) -2 magdalenas -1 porción de budín -1 baggio -1 bolsita de pochoclos -2 alfajores de maicena -1 bolsita de cookies(incluye 6 cookies) -2 conos de dulce de leche -1 tarta individual a elección (pastafrola de dulce de leche, dulce de batata o membrillo, tarta de coco o tarta cabsha) -1 globo', 800, 'img/desayuno-completo.jpg', 5);
 
 -- --------------------------------------------------------
 
@@ -152,25 +158,25 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT for table `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `comentario`
 --
 ALTER TABLE `comentario`
-  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
